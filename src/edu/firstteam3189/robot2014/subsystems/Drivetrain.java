@@ -3,20 +3,25 @@ package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.TankDrive;
+import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * @author Andrew, Michael
  */
 public class Drivetrain extends Subsystem {
     
     private Victor left;
     private Victor right;
+    private AnalogChannel sonar;
+    private static final double VOLTS_PER_INCH = 2; //TODO Calabrate sonar
     
     public Drivetrain () {
         left = new Victor(RobotMap.leftMotors);
         right = new Victor(RobotMap.rightMotors);
+        sonar = new AnalogChannel(RobotMap.sonar);
     }
 
     public void initDefaultCommand() {
@@ -41,6 +46,19 @@ public class Drivetrain extends Subsystem {
     public void unpowerTankDrive () {
         left.set(0);
         right.set(0);
+    }
+    
+    public double getVoltage() {
+        return sonar.getVoltage();
+    }
+    
+    public double getDistance() {
+        return sonar.getVoltage() * VOLTS_PER_INCH;
+    }
+    
+    public void updateStatus() {
+        SmartDashboard.putNumber("sonar voltage:", getVoltage());
+        SmartDashboard.putNumber("sonar distance:", getDistance());
     }
 }
 

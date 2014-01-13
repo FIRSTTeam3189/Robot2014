@@ -26,9 +26,12 @@ public class RobotMap {
     // Channel for high gear solenoid (Piston)
     public static final int highGear = 2;
     
-    // TODO comment
+    // Channel for the shooter motor
     public static final int shooterMotor = 3;
     
     // The annlog channel for the potentiometer
     public static final int potentiometer = 1;
+    
+    // The annlog channel for the sonar
+    public static final int sonar = 2;
 }

@@ -38,5 +38,7 @@ public abstract class CommandBase extends Command {
         client.updateStatus();
         SmartDashboard.putData(client);
         SmartDashboard.putData(drivetrain);
+        shooter.updateStatus();
+        drivetrain.updateStatus();
     }
 }

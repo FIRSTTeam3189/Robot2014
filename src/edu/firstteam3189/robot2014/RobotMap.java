@@ -28,4 +28,7 @@ public class RobotMap {
     
     // TODO comment
     public static final int shooterMotor = 3;
+    
+    // The annlog channel for the potentiometer
+    public static final int potentiometer = 1;
 }

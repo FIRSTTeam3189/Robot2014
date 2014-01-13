@@ -1,8 +1,13 @@
 
 package edu.firstteam3189.robot2014.commands;
 
-public class ControllerTankDrive extends CommandBase {
+/**
+ * 
+ * @author Michael
+ */
 
+public class ControllerTankDrive extends CommandBase {
+    
     public ControllerTankDrive() {
         requires(drivetrain);
     }

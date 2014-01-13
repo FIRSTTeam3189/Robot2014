@@ -6,7 +6,7 @@ package edu.firstteam3189.robot2014;
 
 /**
  *
- * @author DevBo
+ * @author Michael
  */
 public class Constants {
     public static int cameraWidth = 640;

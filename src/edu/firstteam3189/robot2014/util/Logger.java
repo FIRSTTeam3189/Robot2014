@@ -2,6 +2,7 @@ package edu.firstteam3189.robot2014.util;
 
 /**
  * This class is used to dump informational messages.
+ * @author Michael
  */
 public class Logger {
 	public static final int DEBUG = 4;

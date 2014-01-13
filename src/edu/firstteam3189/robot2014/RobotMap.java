@@ -5,6 +5,7 @@ package edu.firstteam3189.robot2014;
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
+ * @author Michael, Andrew, Ian, Ky, Adam
  */
 public class RobotMap {
     

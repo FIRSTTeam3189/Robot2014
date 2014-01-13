@@ -10,6 +10,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables2.util.List;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+/**
+ * 
+ * @author Michael
+ */
+
 public class Client extends Subsystem {
     private static final Logger logger = new Logger(Client.class);
 

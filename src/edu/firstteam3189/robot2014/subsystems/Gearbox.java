@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
- * @author DevBo
+ * @author Ian
  */
 public class Gearbox extends Subsystem {
     // Put methods for controlling this subsystem

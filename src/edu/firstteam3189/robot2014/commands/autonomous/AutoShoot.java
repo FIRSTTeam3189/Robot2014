@@ -9,7 +9,7 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
 
 /**
  *
- * @author DevBo
+ * @author Michael
  */
 public class AutoShoot extends CommandBase {
     

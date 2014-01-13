@@ -9,6 +9,11 @@ import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
 import edu.firstteam3189.robot2014.subsystems.Shooter;
 
+/**
+ * 
+ * @author Michael, Andrew, Ky
+ */
+
 public abstract class CommandBase extends Command {
 
     public static OI oi;

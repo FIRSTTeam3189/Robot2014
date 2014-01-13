@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 /**
  *
- * @author DevBo
+ * @author Michael, Ian
  */
 public class Piston {
     

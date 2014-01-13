@@ -8,6 +8,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.firstteam3189.robot2014.commands.CommandBase;
 import edu.firstteam3189.robot2014.commands.autonomous.Autonomous;
 
+/**
+ * 
+ * @author Michael
+ */
+
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;

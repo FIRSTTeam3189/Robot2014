@@ -5,7 +5,7 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
 
 /**
  *
- * @author bradmiller
+ * @author Michael
  */
 public class StartClient extends CommandBase {
 

@@ -7,7 +7,7 @@ package edu.firstteam3189.robot2014.util;
 
 /**
  * 
- * @author DevBo
+ * @author Michael
  */
 public class Utility {
 	public static double clamp(double value, double min, double max) {

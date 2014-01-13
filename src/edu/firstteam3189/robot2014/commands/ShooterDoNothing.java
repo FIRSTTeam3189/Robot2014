@@ -6,7 +6,7 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author jameswomack
+ * @author Michael
  */
 public class ShooterDoNothing extends CommandBase {
     

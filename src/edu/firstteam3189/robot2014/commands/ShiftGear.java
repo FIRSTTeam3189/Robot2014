@@ -6,7 +6,7 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author DevBo
+ * @author Michael
  */
 public class ShiftGear extends CommandBase {
     

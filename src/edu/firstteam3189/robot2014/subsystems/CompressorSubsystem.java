@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
- * @author DevBo
+ * @author Michael, Ian
  */
 public class CompressorSubsystem extends Subsystem {
     // Put methods for controlling this subsystem

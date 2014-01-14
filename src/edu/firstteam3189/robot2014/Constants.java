@@ -25,6 +25,7 @@ public class Constants {
     public static final double FORWARD_PWR = .6;
     
     public static final double SHOOT_TIME = 5;
+    public static final double EXTEND_TIME = .5;
     
     
     /**

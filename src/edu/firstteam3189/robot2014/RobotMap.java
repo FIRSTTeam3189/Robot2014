@@ -35,4 +35,11 @@ public class RobotMap {
     
     // The annlog channel for the sonar
     public static final int sonar = 2;
+    
+    // Channel for piston out
+    public static final int kicker = 3;
+    
+    // Channel for piston in
+    public static final int unkicker = 4;
+    
 }

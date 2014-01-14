@@ -8,6 +8,7 @@ import edu.firstteam3189.robot2014.subsystems.CompressorSubsystem;
 import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
 import edu.firstteam3189.robot2014.subsystems.Shooter;
+import edu.firstteam3189.robot2014.subsystems.ShooterPiston;
 
 /**
  * 
@@ -22,6 +23,7 @@ public abstract class CommandBase extends Command {
     public static CompressorSubsystem compressor = new CompressorSubsystem();
     public static Gearbox gearbox = new Gearbox();
     public static Shooter shooter = new Shooter();
+    public static ShooterPiston shooterPiston = new ShooterPiston();
     
 
     public static void init() {

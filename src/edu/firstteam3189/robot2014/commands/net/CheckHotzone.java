@@ -29,11 +29,12 @@ public class CheckHotzone extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !client.isConnected() || isTimedOut() || client.checkInputCodeStream();
+        return !client.isConnected() || isTimedOut() ||client.checkInputCodeStream();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Done Check Hotzone");
     }
 
     // Called when another command which requires one or more of the same

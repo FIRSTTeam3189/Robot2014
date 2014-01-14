@@ -26,6 +26,7 @@ public class StartClient extends CommandBase {
     }
 
     protected void end() {
+        System.out.println("Done With Start Client");
     }
 
     protected void interrupted() {

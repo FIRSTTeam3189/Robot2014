@@ -6,6 +6,7 @@ package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.Robot;
 import edu.firstteam3189.robot2014.RobotMap;
+import edu.firstteam3189.robot2014.commands.KickerRetract;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -34,5 +35,6 @@ public class ShooterPiston extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new KickerRetract());
     }
 }

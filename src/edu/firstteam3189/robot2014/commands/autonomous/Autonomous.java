@@ -4,10 +4,10 @@
  */
 package edu.firstteam3189.robot2014.commands.autonomous;
 
+import edu.firstteam3189.robot2014.commands.KickerExtend;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
-import edu.firstteam3189.robot2014.subsystems.Client;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -22,9 +22,12 @@ public class Autonomous extends CommandGroup {
         
         // Parallel becuase it needs to check while moving forward.
         addParallel(new CheckHotzone());
-        addSequential(new Forward());
-        addSequential(new WaitForHotzone());
-        addSequential(new AutoShoot());
         
+        addSequential(new Forward());
+        
+        addSequential(new WaitForHotzone());
+        
+        //addSequential(new AutoShoot());
+        addSequential(new KickerExtend());
     }
 }

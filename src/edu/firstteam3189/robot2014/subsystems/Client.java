@@ -148,7 +148,7 @@ public class Client extends Subsystem {
     }
 
     public boolean isInHotzone () {
-        return code.getReceived() == Constants.CLIENT_IS_HZ;
+        return code.getReceived() >= Constants.CLIENT_IS_HZ;
     }
 
     protected void initDefaultCommand() {

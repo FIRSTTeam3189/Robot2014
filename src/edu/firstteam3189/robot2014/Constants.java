@@ -19,7 +19,7 @@ public class Constants {
     public static int CLIENT_SENDINGIMAGE = 42;
     public static int CLIENT_SHUTDOWN = 666;
     public static int CLIENT_SEND_CHECK = 69;
-    public static int CLIENT_IS_HZ = 1;
+    public static int CLIENT_IS_HZ = 2;
     
     public static final double FORWARD_TIME = 2;
     public static final double FORWARD_PWR = .6;

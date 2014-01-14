@@ -16,9 +16,8 @@ public class WaitForHotzone extends CommandBase {
     private boolean done = false;
     
     public WaitForHotzone() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        setTimeout(Constants.SHOOT_TIME);
+        requires(client);
+        setTimeout(Constants.SHOOT_TIME - Constants.FORWARD_TIME);
     }
 
     // Called just before this Command runs the first time
@@ -41,6 +40,7 @@ public class WaitForHotzone extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Done with HZ Check");
     }
 
     // Called when another command which requires one or more of the same

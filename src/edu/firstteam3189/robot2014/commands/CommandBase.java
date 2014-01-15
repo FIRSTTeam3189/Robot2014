@@ -9,6 +9,7 @@ import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
 import edu.firstteam3189.robot2014.subsystems.Shooter;
 import edu.firstteam3189.robot2014.subsystems.ShooterPiston;
+import edu.firstteam3189.robot2014.subsystems.Sonar;
 
 /**
  * 
@@ -24,6 +25,7 @@ public abstract class CommandBase extends Command {
     public static Gearbox gearbox = new Gearbox();
     public static Shooter shooter = new Shooter();
     public static ShooterPiston shooterPiston = new ShooterPiston();
+    public static Sonar sonar = new Sonar();
     
 
     public static void init() {
@@ -46,6 +48,6 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData(client);
         SmartDashboard.putData(drivetrain);
         shooter.updateStatus();
-        drivetrain.updateStatus();
+        sonar.updateStatus();
     }
 }

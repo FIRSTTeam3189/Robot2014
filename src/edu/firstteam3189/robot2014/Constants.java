@@ -12,11 +12,7 @@ public class Constants {
     public static int cameraWidth = 640;
     public static int cameraHeight = 480;
     
-    public static int CLIENT_WAIT = 0;
-    public static int CLIENT_SEND = 1;
-    public static int CLIENT_DISCONNECT = 2;
-    public static int CLIENT_START_PROCESSING = 14;
-    public static int CLIENT_SENDINGIMAGE = 42;
+    public static int CLIENT_DISCONNECT = 14;
     public static int CLIENT_SHUTDOWN = 666;
     public static int CLIENT_SEND_CHECK = 69;
     public static int CLIENT_IS_HZ = 2;

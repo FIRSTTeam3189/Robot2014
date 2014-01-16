@@ -1,6 +1,7 @@
 
 package edu.firstteam3189.robot2014;
 
+import edu.firstteam3189.robot2014.commands.ControllerTankDrive;
 import edu.firstteam3189.robot2014.commands.HighGear;
 import edu.firstteam3189.robot2014.commands.LowGear;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -30,6 +32,10 @@ public class OI {
     private Button startClient = new JoystickButton(controller, ControlMap.button0);
     private Button sendCode = new JoystickButton(controller, ControlMap.button1);
     private Button recieveCode = new JoystickButton(controller, ControlMap.button2);
+    private Button button4 = new JoystickButton(controller, 4);
+    
+    private Button button5 = new JoystickButton(controller, ControlMap.button5);
+    private Button button6 = new JoystickButton(controller, ControlMap.button6);
     
     public OI () {
         shiftGears.whenPressed(new ShiftGear());
@@ -38,6 +44,9 @@ public class OI {
         startClient.whenPressed(new StartClient());
         sendCode.whenPressed(new SendHotzoneCheck());
         recieveCode.whenPressed(new CheckHotzone());
+        button5.whenPressed(new LowGear());
+        button6.whenPressed(new HighGear());
+        button4.whenPressed(new ControllerTankDrive());
     }
     
     public double getLeftY () {
@@ -54,6 +63,10 @@ public class OI {
     
     public double getControllerRightY () {
         return controller.getRawAxis(6);
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putNumber("axis", getControllerRightY());
     }
     
 }

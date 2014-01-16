@@ -61,8 +61,10 @@ public class Client extends Subsystem {
      */
     public void close() {
         try {
-            code.outputToStream(Constants.CLIENT_DISCONNECT);
+            if(isConnected()){
+                code.outputToStream(Constants.CLIENT_DISCONNECT);
             addProcess("sent disconnect code");
+            }
         } catch (IOException ex) {
             addProcess("failed to send disconnect code");
         }

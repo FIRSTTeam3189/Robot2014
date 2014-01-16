@@ -35,4 +35,8 @@ public class ControlMap {
     
     public static final int button2 = 3;
     
+    public static final int button5 = 5;
+    
+    public static final int button6 = 6;
+    
 }

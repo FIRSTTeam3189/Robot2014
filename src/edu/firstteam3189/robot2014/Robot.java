@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.firstteam3189.robot2014.commands.CommandBase;
 import edu.firstteam3189.robot2014.commands.autonomous.Autonomous;
+import edu.firstteam3189.robot2014.commands.net.EndClient;
 
 /**
  * 
@@ -45,6 +46,11 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
     }
 
+    public void disabledInit() {
+        new EndClient().start();
+        super.disabledInit(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public void disabledPeriodic() {
         CommandBase.updateStatus();
         super.disabledPeriodic(); //To change body of generated methods, choose Tools | Templates.

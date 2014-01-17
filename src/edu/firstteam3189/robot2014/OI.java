@@ -8,6 +8,7 @@ import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
+import edu.firstteam3189.robot2014.commands.t4emp;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
@@ -44,9 +45,9 @@ public class OI {
         startClient.whenPressed(new StartClient());
         sendCode.whenPressed(new SendHotzoneCheck());
         recieveCode.whenPressed(new CheckHotzone());
-        button5.whenPressed(new LowGear());
-        button6.whenPressed(new HighGear());
+        button5.whileHeld(new t4emp());
         button4.whenPressed(new ControllerTankDrive());
+        
     }
     
     public double getLeftY () {

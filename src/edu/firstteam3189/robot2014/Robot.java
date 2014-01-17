@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void disabledInit() {
-        new EndClient().start();
+        (new EndClient()).start();
         super.disabledInit(); //To change body of generated methods, choose Tools | Templates.
     }
     

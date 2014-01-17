@@ -63,7 +63,7 @@ public class Client extends Subsystem {
         try {
             if(isConnected()){
                 code.outputToStream(Constants.CLIENT_DISCONNECT);
-            addProcess("sent disconnect code");
+                addProcess("sent disconnect code");
             }
         } catch (IOException ex) {
             addProcess("failed to send disconnect code");
@@ -130,14 +130,18 @@ public class Client extends Subsystem {
      * try's to connect to servers socket.
      */
     public boolean setUp() {
+        if(code.isConnected()){
             try {
                 code.connectSocket();
                 addProcess("socket setup finished successfully");
                 return true;
             } catch (Exception e) {
-                    addProcess("socket setup failed: " + e);
+                addProcess("socket setup failed: " + e);
             }
-            return false;
+        }else {
+            addProcess("socket is already connected");
+        }
+        return false;
     }
 
     /**

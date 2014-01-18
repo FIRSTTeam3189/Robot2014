@@ -19,17 +19,21 @@ public class ShooterPiston extends Subsystem {
     // here. Call these from Commands.
     
     private Piston shooter;
+    private Piston gears;
     
     public ShooterPiston () {
         shooter = new Piston(RobotMap.kicker, RobotMap.unkicker);
+        gears = new Piston(RobotMap.gearshift, RobotMap.ungearshift);
     }
     
     public void kick () {
         shooter.extend();
+        gears.extend();
     }
     
     public void unkick () {
         shooter.retract();
+        gears.retract();
     }
     
     public void initDefaultCommand() {

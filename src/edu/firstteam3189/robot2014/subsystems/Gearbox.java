@@ -19,19 +19,19 @@ public class Gearbox extends Subsystem {
     private Piston piston;
     
     public Gearbox () {
-        piston = new Piston(RobotMap.lowGear, RobotMap.highGear, false);
+        //piston = new Piston(RobotMap.lowGear, RobotMap.highGear, false);
     }
     
     public void shiftHighGear () {
-        piston.retract();
+        //piston.retract();
     }
     
     public void shiftLowGear () {
-        piston.extend();
+        //piston.extend();
     }
     
     public void shiftGear () {
-        piston.toggle();
+        //piston.toggle();
     }
     
     public void initDefaultCommand() {

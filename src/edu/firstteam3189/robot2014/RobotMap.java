@@ -37,6 +37,12 @@ public class RobotMap {
     public static final int sonar = 2;
     
     // Channel for piston out
+    public static final int gearshift = 1;
+    
+    // Channel for piston in
+    public static final int ungearshift = 2;
+    
+    // Channel for piston out
     public static final int kicker = 3;
     
     // Channel for piston in

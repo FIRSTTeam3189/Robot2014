@@ -28,7 +28,10 @@ public class RobotMap {
     public static final int highGear = 2;
     
     // Channel for the shooter motor
-    public static final int shooterMotor = 3;
+    public static final int rightShooterMotor = 4;
+    
+    // Channel for the shooter motor
+    public static final int leftShooterMotor = 3;
     
     // The annlog channel for the potentiometer
     public static final int potentiometer = 1;

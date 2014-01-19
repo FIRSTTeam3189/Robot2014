@@ -10,9 +10,9 @@ import edu.firstteam3189.robot2014.Constants;
  *
  * @author Michael, Deci
  */
-public class t4emp extends CommandBase {
+public class ExtendKicker extends CommandBase {
     
-    public t4emp() {
+    public ExtendKicker() {
         requires(shooterPiston);
     }
 

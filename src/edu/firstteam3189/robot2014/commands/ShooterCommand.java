@@ -6,22 +6,23 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Michael
+ * @author DevBo
  */
-public class ShooterDoNothing extends CommandBase {
+public class ShooterCommand extends CommandBase {
     
-    public ShooterDoNothing() {
-        // Use requires() here to declare subsystem dependencies
+    public ShooterCommand() {
         requires(shooter);
+        requires(drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.unPower();
+        drivetrain.unpowerTankDrive();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        shooter.setSpeed(oi.getControllerLeftY());
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -18,22 +18,27 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Shooter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private Victor shooterMotor;
+    private Victor rightMotor;
+    private Victor leftMotor;
     private AnalogChannel potentiometer;
     
     private static final double VOLTS_PER_DEGREE = 60 / 5;
     
     public Shooter () {
-        shooterMotor = new Victor(RobotMap.shooterMotor);
+        rightMotor = new Victor(RobotMap.rightShooterMotor);
+        leftMotor = new Victor(RobotMap.leftShooterMotor);
         potentiometer = new AnalogChannel(RobotMap.potentiometer);
     }
     
     public void setSpeed (double pwr) {
-        shooterMotor.set(pwr);
+        rightMotor.set(pwr);
+        leftMotor.set(-pwr);
     }
     
     public void unPower () {
-        shooterMotor.set(0);
+        rightMotor.set(0);
+        leftMotor.set(0);
+        
     }
 
     public double getVoltage(){

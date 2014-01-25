@@ -4,7 +4,6 @@
  */
 package edu.firstteam3189.robot2014.commands.autonomous;
 
-import edu.firstteam3189.robot2014.commands.KickerExtend;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -14,11 +13,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous extends CommandGroup {
     
     public Autonomous() {
-        addParallel(new GetREcts());
+        addParallel(new GetRects());
         addSequential(new Forward());
         
         addSequential(new WaitForHotzone());
         
-        addSequential(new KickerExtend());
     }
 }

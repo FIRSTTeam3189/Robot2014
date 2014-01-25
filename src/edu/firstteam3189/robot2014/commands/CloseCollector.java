@@ -4,25 +4,23 @@
  */
 package edu.firstteam3189.robot2014.commands;
 
-import edu.firstteam3189.robot2014.Constants;
-
 /**
  *
- * @author Michael, Deci
+ * @author jameswomack
  */
-public class ExtendKicker extends CommandBase {
+public class CloseCollector extends CommandBase {
     
-    public ExtendKicker() {
-        requires(shooterPiston);
+    public CloseCollector() {
+        requires(claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooterPiston.kick();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        claw.closeCollector();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,10 +30,12 @@ public class ExtendKicker extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        claw.closeCollector();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        claw.closeCollector();
     }
 }

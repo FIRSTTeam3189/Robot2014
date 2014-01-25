@@ -45,10 +45,9 @@ public class RobotMap {
     // Channel for piston in
     public static final int ungearshift = 2;
     
-    // Channel for piston out
-    public static final int kicker = 3;
+    // Channel for collector extend
+    public static final int collectorOpen = 3;
     
-    // Channel for piston in
-    public static final int unkicker = 4;
-    
+    // Channel for collector retract
+    public static final int collectorClose = 4;
 }

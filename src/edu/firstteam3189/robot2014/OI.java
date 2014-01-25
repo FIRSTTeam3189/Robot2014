@@ -9,7 +9,6 @@ import edu.firstteam3189.robot2014.commands.ShooterCommand;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
-import edu.firstteam3189.robot2014.commands.ExtendKicker;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
@@ -46,7 +45,6 @@ public class OI {
         startClient.whenPressed(new StartClient());
         sendCode.whenPressed(new SendHotzoneCheck());
         recieveCode.whenPressed(new CheckHotzone());
-        button5.whileHeld(new ExtendKicker());
         button4.whenPressed(new ShooterCommand());
         
     }

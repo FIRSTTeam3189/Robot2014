@@ -5,33 +5,55 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.util.Piston;
+import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author jameswomack
  */
 public class Collector extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    private Piston claw = new Piston(RobotMap.collectorOpen, RobotMap.collectorClose);
     
+    private Victor left;
+    private Victor right;
+    private AnalogChannel potentiometer;
+    
+    private static final double VOLTS_PER_DEGREE = 60 / 5;
+    
+    public Collector () {
+        left = new Victor(RobotMap.collectorLeft);
+        right = new Victor(RobotMap.collectorRight);
+        potentiometer = new AnalogChannel(RobotMap.potentiometer);
+    }
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void openCollector () {
-        claw.extend();
+    public void setPower (double pwr) {
+        left.set(pwr);
+        right.set(-pwr);
     }
     
-    public void closeCollector () {
-        claw.retract();
+    public void murder () {
+        left.set(0);
+        right.set(-0);
     }
     
-    public void toggleCollector () {
-        claw.toggle();
+        public double getVoltage(){
+        return potentiometer.getVoltage();
+    }
+    
+    public double getAngle(){
+        return getVoltage() * VOLTS_PER_DEGREE;
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putNumber("Angle", getAngle());
+        SmartDashboard.putNumber("Pot. Voltage", getVoltage());
     }
     
 }

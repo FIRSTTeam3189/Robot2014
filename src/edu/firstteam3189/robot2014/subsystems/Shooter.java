@@ -20,14 +20,12 @@ public class Shooter extends Subsystem {
     // here. Call these from Commands.
     private Victor rightMotor;
     private Victor leftMotor;
-    private AnalogChannel potentiometer;
     
-    private static final double VOLTS_PER_DEGREE = 60 / 5;
     
     public Shooter () {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
-        potentiometer = new AnalogChannel(RobotMap.potentiometer);
+        
     }
     
     public void setSpeed (double pwr) {
@@ -41,19 +39,6 @@ public class Shooter extends Subsystem {
         
     }
 
-    public double getVoltage(){
-        return potentiometer.getVoltage();
-    }
-    
-    public double getAngle(){
-        return getVoltage() * VOLTS_PER_DEGREE;
-    }
-    
-    public void updateStatus(){
-        SmartDashboard.putNumber("Angle", getAngle());
-        SmartDashboard.putNumber("Pot. Voltage", getVoltage());
-    }
-    
     public void initDefaultCommand() {
         setDefaultCommand(new ShooterDoNothing());
     }

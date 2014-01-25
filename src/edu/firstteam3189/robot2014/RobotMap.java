@@ -50,4 +50,9 @@ public class RobotMap {
     
     // Channel for collector retract
     public static final int collectorClose = 4;
+    
+    public static final int collectorLeft = 5;
+    
+    public static final int collectorRight = 6;
+    
 }

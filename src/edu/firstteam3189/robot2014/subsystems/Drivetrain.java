@@ -5,7 +5,6 @@ import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.TankDrive;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * @author Andrew, Michael
@@ -32,7 +31,6 @@ public class Drivetrain extends Subsystem {
      */
     public void powerTankDrive (double leftPwr, double rightPwr) {
         left.set(leftPwr);
-       
         // Negated because motor is flipped (Switching wires is BAD [illegal])
         right.set(-rightPwr);
     }

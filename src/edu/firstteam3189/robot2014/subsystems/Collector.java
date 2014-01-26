@@ -1,10 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
+import edu.firstteam3189.robot2014.commands.CloseCollector;
+import edu.firstteam3189.robot2014.commands.ControlCollector;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
- * @author jameswomack
+ * @author devBo
  */
 public class Collector extends Subsystem {
     
@@ -29,8 +27,7 @@ public class Collector extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new ControlCollector());
     }
     
     public void setPower (double pwr) {
@@ -55,5 +52,4 @@ public class Collector extends Subsystem {
         SmartDashboard.putNumber("Angle", getAngle());
         SmartDashboard.putNumber("Pot. Voltage", getVoltage());
     }
-    
 }

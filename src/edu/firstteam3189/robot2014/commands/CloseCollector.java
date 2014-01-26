@@ -4,6 +4,8 @@
  */
 package edu.firstteam3189.robot2014.commands;
 
+import edu.firstteam3189.robot2014.commands.CommandBase;
+
 /**
  *
  * @author jameswomack
@@ -16,11 +18,12 @@ public class CloseCollector extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        claw.closeCollector();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        claw.closeCollector();
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

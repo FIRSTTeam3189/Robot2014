@@ -1,17 +1,18 @@
 
 package edu.firstteam3189.robot2014;
 
-import edu.firstteam3189.robot2014.commands.ControllerTankDrive;
+import edu.firstteam3189.robot2014.commands.CloseCollector;
 import edu.firstteam3189.robot2014.commands.HighGear;
 import edu.firstteam3189.robot2014.commands.LowGear;
+import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
+import edu.firstteam3189.robot2014.commands.ToggleCollector;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,26 +27,27 @@ public class OI {
     private Joystick rightJoystick = new Joystick(ControlMap.rightJoystick);
     private Joystick controller = new Joystick(ControlMap.controller);
     
-    private Button shiftGears = new JoystickButton(rightJoystick, ControlMap.shiftGears);
-    private Button lowGear = new JoystickButton(rightJoystick, ControlMap.lowGear);
-    private Button highGear = new JoystickButton(rightJoystick, ControlMap.highGear);
+    private Button rightButton1 = new JoystickButton(rightJoystick, ControlMap.rightButton1);
+    private Button rightButton2 = new JoystickButton(rightJoystick, ControlMap.rightButton2);
+    private Button rightButton3 = new JoystickButton(rightJoystick, ControlMap.rightButton3);
     
-    private Button startClient = new JoystickButton(controller, ControlMap.button0);
-    private Button sendCode = new JoystickButton(controller, ControlMap.button1);
-    private Button recieveCode = new JoystickButton(controller, ControlMap.button2);
-    private Button button4 = new JoystickButton(controller, 4);
-    
-    private Button button5 = new JoystickButton(controller, ControlMap.button5);
-    private Button button6 = new JoystickButton(controller, ControlMap.button6);
+    private Button controllerButton1 = new JoystickButton(controller, ControlMap.button0);
+    private Button controllerButton2 = new JoystickButton(controller, ControlMap.button1);
+    private Button controllerButton3 = new JoystickButton(controller, ControlMap.button2);
+    private Button controllerButton4 = new JoystickButton(controller, 4);
+    private Button controllerButton5 = new JoystickButton(controller, ControlMap.button5);
+    private Button controllerButton6 = new JoystickButton(controller, ControlMap.button6);
+    private Button controllerButton7 = new JoystickButton(controller, ControlMap.button7);
+    private Button controllerButton8 = new JoystickButton(controller, ControlMap.button8);
     
     public OI () {
-        shiftGears.whenPressed(new ShiftGear());
-        lowGear.whenPressed(new LowGear());
-        highGear.whenPressed(new HighGear());
-        startClient.whenPressed(new StartClient());
-        sendCode.whenPressed(new SendHotzoneCheck());
-        recieveCode.whenPressed(new CheckHotzone());
-        button4.whenPressed(new ShooterCommand());
+        rightButton1.whenPressed(new ShiftGear());
+        rightButton2.whenPressed(new HighGear());
+        rightButton3.whenPressed(new LowGear());
+        
+        controllerButton2.whenPressed(new ToggleCollector());
+        controllerButton7.whenPressed(new OpenCollector());
+        controllerButton8.whenPressed(new CloseCollector());
         
     }
     
@@ -68,6 +70,4 @@ public class OI {
     public void updateStatus(){
         SmartDashboard.putNumber("axis", getControllerRightY());
     }
-    
 }
-

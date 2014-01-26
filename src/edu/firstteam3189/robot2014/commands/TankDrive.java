@@ -24,8 +24,10 @@ public class TankDrive extends CommandBase {
     }
 
     protected void end() {
+        drivetrain.unpowerTankDrive();
     }
 
     protected void interrupted() {
+        drivetrain.unpowerTankDrive();
     }
 }

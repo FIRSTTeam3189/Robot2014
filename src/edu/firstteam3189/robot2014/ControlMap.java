@@ -11,13 +11,13 @@ package edu.firstteam3189.robot2014;
 public class ControlMap {
     
     // Button number for shift gears (OI)
-    public static final int shiftGears = 1;
+    public static final int rightButton1 = 1;
     
     // Button number for low gear (OI)
-    public static final int lowGear = 2;
+    public static final int rightButton2 = 2;
     
     // Button number for high gear (OI)
-    public static final int highGear = 3;
+    public static final int rightButton3 = 3;
     
     // Channel for controller (OI)
     public static final int controller = 3;
@@ -38,5 +38,9 @@ public class ControlMap {
     public static final int button5 = 5;
     
     public static final int button6 = 6;
+    
+    public static final int button7 = 7;
+    
+    public static final int button8 = 8;
     
 }

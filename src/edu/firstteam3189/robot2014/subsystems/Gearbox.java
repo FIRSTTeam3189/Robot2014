@@ -14,12 +14,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author Ian
  */
 public class Gearbox extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private Piston piston;
     
     public Gearbox () {
-        //piston = new Piston(RobotMap.lowGear, RobotMap.highGear, false);
+        piston = new Piston(RobotMap.lowGear, RobotMap.highGear, false);
     }
     
     public void shiftHighGear () {

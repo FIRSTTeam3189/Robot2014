@@ -14,8 +14,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author jameswomack
  */
 public class CollectorGrabber extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private Piston claw = new Piston(RobotMap.collectorOpen, RobotMap.collectorClose);
     
     public void initDefaultCommand() {

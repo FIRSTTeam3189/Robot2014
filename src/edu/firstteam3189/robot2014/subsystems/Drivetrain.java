@@ -12,12 +12,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
     
     private Victor left;
+    private Victor leftTwo;
     private Victor right;
+    private Victor rightTwo;
     
     
     public Drivetrain () {
         left = new Victor(RobotMap.leftMotors);
+        leftTwo = new Victor(RobotMap.leftTwoMotors);
         right = new Victor(RobotMap.rightMotors);
+        rightTwo = new Victor(RobotMap.rightTwoMotors);
     }
 
     public void initDefaultCommand() {

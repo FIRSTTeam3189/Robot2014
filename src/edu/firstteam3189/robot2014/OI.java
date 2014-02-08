@@ -2,6 +2,7 @@
 package edu.firstteam3189.robot2014;
 
 import edu.firstteam3189.robot2014.commands.CloseCollector;
+import edu.firstteam3189.robot2014.commands.ControlCollector;
 import edu.firstteam3189.robot2014.commands.HighGear;
 import edu.firstteam3189.robot2014.commands.LowGear;
 import edu.firstteam3189.robot2014.commands.OpenCollector;
@@ -45,9 +46,11 @@ public class OI {
         rightButton2.whenPressed(new HighGear());
         rightButton3.whenPressed(new LowGear());
         
-        controllerButton2.whenPressed(new ToggleCollector());
-        controllerButton7.whenPressed(new OpenCollector());
-        controllerButton8.whenPressed(new CloseCollector());
+        controllerButton1.whenPressed(new ToggleCollector());
+        controllerButton2.whenPressed(new OpenCollector());
+        controllerButton3.whenPressed(new CloseCollector());
+        controllerButton4.whenPressed(new ShooterCommand());
+        controllerButton5.whenPressed(new ControlCollector());
         
     }
     
@@ -55,7 +58,7 @@ public class OI {
         return leftJoystick.getY();
     }
     
-    public double  getRightY () {
+    public double getRightY () {
         return rightJoystick.getY();
     }
     
@@ -65,6 +68,10 @@ public class OI {
     
     public double getControllerRightY () {
         return controller.getRawAxis(6);
+    }
+    
+    public double getShooterY(){
+        return controller.getY();
     }
     
     public void updateStatus(){

@@ -12,17 +12,17 @@ public class ShooterCommand extends CommandBase {
     
     public ShooterCommand() {
         requires(shooter);
-        requires(drivetrain);
+        requires(collector);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        drivetrain.unpowerTankDrive();
+        collector.murder();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setSpeed(oi.getControllerLeftY());
+        shooter.setSpeed(oi.getShooterY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,10 +32,12 @@ public class ShooterCommand extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        shooter.unPower();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        shooter.unPower();
     }
 }

@@ -7,6 +7,7 @@ import edu.firstteam3189.robot2014.commands.HighGear;
 import edu.firstteam3189.robot2014.commands.LowGear;
 import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
+import edu.firstteam3189.robot2014.commands.ShootTimeDelayed;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
 import edu.firstteam3189.robot2014.commands.ToggleCollector;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
@@ -46,7 +47,7 @@ public class OI {
         rightButton2.whenPressed(new HighGear());
         rightButton3.whenPressed(new LowGear());
         
-        controllerButton1.whenPressed(new ToggleCollector());
+        controllerButton1.whenPressed(new ShootTimeDelayed());
         controllerButton2.whenPressed(new OpenCollector());
         controllerButton3.whenPressed(new CloseCollector());
         controllerButton4.whenPressed(new ShooterCommand());
@@ -76,5 +77,6 @@ public class OI {
     
     public void updateStatus(){
         SmartDashboard.putNumber("axis", getControllerRightY());
+        SmartDashboard.putNumber("Shooter Y", getShooterY());
     }
 }

@@ -4,6 +4,8 @@
  */
 package edu.firstteam3189.robot2014;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  *
  * @author Michael
@@ -23,17 +25,21 @@ public class Constants {
     public static final double SHOOT_TIME = 5;
     public static final double EXTEND_TIME = .5;
     
+    public static double SHOOT_TIME_DELAY = 1.0;
+    public static double SHOOT_POWER = -1;
     
     /**
      * Init SmartDashboard variables for constants
      */
     public static void initStatus(){
-        
+        SmartDashboard.putNumber("Shooter Delay Time: ", SHOOT_TIME_DELAY);
+        SmartDashboard.putNumber("Shooter Power: ", SHOOT_POWER);
     }    
     /**
      * updates SmartDashboard values for constants
      */
     public static void updateStatus(){
-        
+        SHOOT_TIME_DELAY = SmartDashboard.getNumber("Shooter Delay Time: ", SHOOT_TIME_DELAY);
+        SHOOT_POWER = SmartDashboard.getNumber("Shooter Power: ", SHOOT_POWER);
     }
 }

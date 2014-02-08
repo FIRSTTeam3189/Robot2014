@@ -22,6 +22,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand = new Autonomous();
 
         CommandBase.init();
+        Constants.initStatus();
     }
 
     public void autonomousInit() {
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         CommandBase.updateStatus();
+        Constants.updateStatus();
     }
 
     public void teleopInit() {
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         CommandBase.updateStatus();
         Scheduler.getInstance().run();
+        Constants.updateStatus();
     }
 
     public void testPeriodic() {
@@ -54,6 +57,7 @@ public class Robot extends IterativeRobot {
     public void disabledPeriodic() {
         CommandBase.updateStatus();
         super.disabledPeriodic(); //To change body of generated methods, choose Tools | Templates.
+        Constants.updateStatus();
     }
     
     

@@ -16,7 +16,7 @@ public class TankDrive extends CommandBase {
     }
 
     protected void execute() {
-        drivetrain.powerTankDrive(oi.getLeftY(), oi.getRightY());
+        drivetrain.powerTankDrive(-oi.getLeftY(), -oi.getRightY());
     }
 
     protected boolean isFinished() {

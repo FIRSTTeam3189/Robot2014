@@ -31,6 +31,8 @@ public class Constants {
     public static double DISTANCE_FROM_WALL = 60;
     public static double DISTANCE_FROM_WALL_TOLERANCE = 2.5;
     
+    public static double COLLECTOR_POWER_LIMIT = 0.5;
+    
     /**
      * Init SmartDashboard variables for constants
      */

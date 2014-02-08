@@ -75,6 +75,10 @@ public class OI {
         return controller.getY();
     }
     
+    public double getShooterThrottle(){
+        return (controller.getThrottle() + 1.0)/2.0;
+    }
+    
     public void updateStatus(){
         SmartDashboard.putNumber("axis", getControllerRightY());
         SmartDashboard.putNumber("Shooter Y", getShooterY());

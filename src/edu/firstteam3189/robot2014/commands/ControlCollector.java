@@ -12,15 +12,17 @@ public class ControlCollector extends CommandBase {
     
     public ControlCollector() {
         requires(collector);
+        requires(shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.unPower();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        collector.setPower(oi.getControllerLeftY());
+        collector.setPower(oi.getShooterY());
     }
 
     // Make this return true when this Command no longer needs to run execute()

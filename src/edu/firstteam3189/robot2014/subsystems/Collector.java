@@ -24,7 +24,7 @@ public class Collector extends Subsystem {
     public Collector () {
         left = new Victor(RobotMap.collectorLeft);
         right = new Victor(RobotMap.collectorRight);
-        potentiometer = new AnalogChannel(RobotMap.potentiometer);
+        potentiometer = new AnalogChannel(RobotMap.armPotentiometer);
     }
 
     public void initDefaultCommand() {

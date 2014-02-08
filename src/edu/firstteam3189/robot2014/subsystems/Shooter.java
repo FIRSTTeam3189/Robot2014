@@ -1,11 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.ShooterDoNothing;
+import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,16 +11,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author Andrew, Michael
  */
 public class Shooter extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private Victor rightMotor;
     private Victor leftMotor;
+    private AnalogChannel potentiometer;
     
     
     public Shooter () {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
-        
+        potentiometer = new AnalogChannel(RobotMap.shooterPotentiometer);
     }
     
     public void setSpeed (double pwr) {

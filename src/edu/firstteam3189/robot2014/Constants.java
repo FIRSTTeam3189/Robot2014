@@ -28,6 +28,9 @@ public class Constants {
     public static double SHOOT_TIME_DELAY = 1.0;
     public static double SHOOT_POWER = -1;
     
+    public static double DISTANCE_FROM_WALL = 60;
+    public static double DISTANCE_FROM_WALL_TOLERANCE = 2.5;
+    
     /**
      * Init SmartDashboard variables for constants
      */

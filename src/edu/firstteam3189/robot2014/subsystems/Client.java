@@ -3,7 +3,6 @@ package edu.firstteam3189.robot2014.subsystems;
 import edu.firstteam3189.robot2014.Constants;
 import edu.firstteam3189.robot2014.util.Logger;
 import edu.firstteam3189.robot2014.util.Sockert;
-import java.io.DataInputStream;
 import java.io.IOException;
 
 import edu.wpi.first.wpilibj.command.Subsystem;

@@ -10,7 +10,7 @@ import edu.firstteam3189.robot2014.subsystems.CompressorSubsystem;
 import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
 import edu.firstteam3189.robot2014.subsystems.Shooter;
-import edu.firstteam3189.robot2014.subsystems.Sonar;
+import edu.firstteam3189.robot2014.subsystems.IndicatorLight;
 
 /**
  * 
@@ -25,7 +25,7 @@ public abstract class CommandBase extends Command {
     public static CompressorSubsystem compressor = new CompressorSubsystem();
     public static Gearbox gearbox = new Gearbox();
     public static Shooter shooter = new Shooter();
-    public static Sonar sonar = new Sonar();
+    public static IndicatorLight light = new IndicatorLight();
     public static CollectorGrabber claw = new CollectorGrabber();
     public static Collector collector = new Collector();
     
@@ -51,7 +51,7 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData(drivetrain);
         SmartDashboard.putData(shooter);
         collector.updateStatus();
-        sonar.updateStatus();
+        light.updateStatus();
         oi.updateStatus();
     }
 }

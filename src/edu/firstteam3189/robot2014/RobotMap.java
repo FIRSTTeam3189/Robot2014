@@ -23,6 +23,7 @@ public class RobotMap {
     
     // Relays
     public static final int compressorRelay = 1;
+    public static final int light = 2;
     
     // Solinoids
     public static final int lowGear = 1;

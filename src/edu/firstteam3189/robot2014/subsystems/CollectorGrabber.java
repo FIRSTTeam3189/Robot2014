@@ -14,7 +14,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author jameswomack
  */
 public class CollectorGrabber extends Subsystem {
-    private Piston claw = new Piston(RobotMap.collectorOpen, RobotMap.collectorClose);
+    private Piston claw;
+
+    public CollectorGrabber() {
+        claw = new Piston(RobotMap.collectorOpen, RobotMap.collectorClose);
+    }
     
     public void initDefaultCommand() {
         setDefaultCommand(new CloseCollector());

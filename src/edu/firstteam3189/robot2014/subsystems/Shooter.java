@@ -15,6 +15,7 @@ public class Shooter extends Subsystem {
     private Victor leftMotor;
     private AnalogChannel potentiometer;
     
+    private static final double VOLTS_PER_DEGREE = 60 / 5;
     
     public Shooter () {
         rightMotor = new Victor(RobotMap.rightShooterMotor);

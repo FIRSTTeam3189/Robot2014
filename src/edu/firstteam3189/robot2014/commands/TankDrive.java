@@ -45,8 +45,5 @@ public class TankDrive extends CommandBase {
         drivetrain.murder();
     }
     
-    public boolean isForward () {
-        return true;
-    }
     
 }

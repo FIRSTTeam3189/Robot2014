@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
- * @author Driver
+ * @author Michael
  */
 public class Configuration {
     
@@ -21,6 +21,9 @@ public class Configuration {
     public static double SHOOTER_DWN_PWR = .6;
     public static double SHOOTER_DWN_DELAY = .5;
     
+    /**
+     * inits variables for SmartDashboard
+     */
     public static void initStatus () {
         SmartDashboard.putNumber("Shooter Delay Time: ", SHOOT_TIME_DELAY);
         SmartDashboard.putNumber("Shooter Power: ", SHOOT_POWER);
@@ -32,6 +35,9 @@ public class Configuration {
         SmartDashboard.putNumber("Shooter Down Delay: ", SHOOTER_DWN_DELAY);
     }
     
+    /**
+     * Updates variables from SmartDashboard
+     */
     public static void updateStatus () {
         SHOOT_TIME_DELAY = SmartDashboard.getNumber("Shooter Delay Time: ", SHOOT_TIME_DELAY);
         SHOOT_POWER = SmartDashboard.getNumber("Shooter Power: ", SHOOT_POWER);

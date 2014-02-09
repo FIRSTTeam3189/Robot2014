@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  * @author Michael
+ * 
+ * This class is for constants only!
+ * Variables that can potentially change because of SmartDashboard should be in Configuration.java
+ * 
  */
 public class Constants {
     public static int cameraWidth = 640;
@@ -34,17 +38,4 @@ public class Constants {
     public static double DISTANCE_FROM_WALL_TOLERANCE = 2.5;
     
     public static double COLLECTOR_POWER_LIMIT = 0.5;
-    
-    /**
-     * Init SmartDashboard variables for constants
-     */
-    public static void initStatus(){
-        
-    }    
-    /**
-     * updates SmartDashboard values for constants
-     */
-    public static void updateStatus(){
-        
-    }
 }

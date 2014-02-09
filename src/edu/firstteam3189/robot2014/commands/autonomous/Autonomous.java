@@ -17,6 +17,7 @@ public class Autonomous extends CommandGroup {
         addSequential(new Forward());
         
         addSequential(new WaitForHotzone());
+        addSequential(new DeployShooter());
         
     }
 }

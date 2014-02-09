@@ -28,19 +28,25 @@ public class ControlMap {
     // Channel for left joy (OI)
     public static final int leftJoystick = 1;
     
-    //TODO comment
+    // Channel for controller button 0
     public static final int button0 = 1;
     
+    // Channel for controller button 1
     public static final int button1 = 2;
     
+    // Channel for controller button 2
     public static final int button2 = 3;
     
+    // Channel for controller button 5
     public static final int button5 = 5;
     
+    // Channel for controller button 6
     public static final int button6 = 6;
     
+    // Channel for controller button 7
     public static final int button7 = 7;
     
+    // Channel for controller button 8
     public static final int button8 = 8;
     
 }

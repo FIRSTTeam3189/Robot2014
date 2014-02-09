@@ -4,6 +4,7 @@
  */
 package edu.firstteam3189.robot2014.commands;
 
+import edu.firstteam3189.robot2014.Configuration;
 import edu.firstteam3189.robot2014.Constants;
 
 /**
@@ -14,7 +15,7 @@ public class ShootTimeDelayed extends CommandBase {
     
     public ShootTimeDelayed() {
         requires(shooter);
-        setTimeout(Constants.SHOOT_TIME_DELAY);
+        setTimeout(Configuration.SHOOT_TIME_DELAY);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +24,7 @@ public class ShootTimeDelayed extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setSpeed(Constants.SHOOT_POWER);
+        shooter.setSpeed(Configuration.SHOOT_POWER);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,13 +34,13 @@ public class ShootTimeDelayed extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        shooter.unPower();
+        shooter.murder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        shooter.unPower();
+        shooter.murder();
         System.out.println("Buttfuck");
     }
 }

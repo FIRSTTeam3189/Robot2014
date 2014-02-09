@@ -28,7 +28,7 @@ public class Shooter extends Subsystem {
         leftMotor.set(-pwr);
     }
     
-    public void unPower () {
+    public void murder () {
         rightMotor.set(0);
         leftMotor.set(0);
         

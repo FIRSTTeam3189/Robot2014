@@ -4,6 +4,7 @@
  */
 package edu.firstteam3189.robot2014.commands.autonomous;
 
+import edu.firstteam3189.robot2014.Configuration;
 import edu.firstteam3189.robot2014.Constants;
 import edu.firstteam3189.robot2014.commands.CommandBase;
 
@@ -20,12 +21,12 @@ public class CollectorDown extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(Constants.COLLECTOR_DWN_DELAY);
+        setTimeout(Configuration.COLLECTOR_DWN_DELAY);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        collector.setPower(Constants.COLLECTOR_DWN_PWR);
+        collector.setPower(Configuration.COLLECTOR_DWN_PWR);
         
     }
 

@@ -19,7 +19,7 @@ public class ControlCollector extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.unPower();
+        shooter.murder();
     }
 
     // Called repeatedly when this Command is scheduled to run

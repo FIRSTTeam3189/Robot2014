@@ -9,6 +9,7 @@ import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.ShootTimeDelayed;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
+import edu.firstteam3189.robot2014.commands.TankDrive;
 import edu.firstteam3189.robot2014.commands.ToggleCollector;
 import edu.firstteam3189.robot2014.commands.autonomous.DeployShooter;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
@@ -42,6 +43,7 @@ public class OI {
     private Button controllerButton6 = new JoystickButton(controller, ControlMap.button6);
     private Button controllerButton7 = new JoystickButton(controller, ControlMap.button7);
     private Button controllerButton8 = new JoystickButton(controller, ControlMap.button8);
+    
     
     public OI () {
         rightButton1.whenPressed(new ShiftGear());
@@ -79,6 +81,10 @@ public class OI {
     
     public double getShooterThrottle(){
         return (controller.getThrottle() + 1.0)/2.0;
+    }
+    
+    public boolean getToggleButton () {
+        return leftJoystick.getRawButton(1);
     }
     
     public void updateStatus(){

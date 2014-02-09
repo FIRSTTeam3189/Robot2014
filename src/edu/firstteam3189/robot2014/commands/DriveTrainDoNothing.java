@@ -16,7 +16,7 @@ public class DriveTrainDoNothing extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        drivetrain.unpowerTankDrive();
+        drivetrain.murder();
     }
 
     // Called repeatedly when this Command is scheduled to run

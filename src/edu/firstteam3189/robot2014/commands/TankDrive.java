@@ -7,7 +7,10 @@ package edu.firstteam3189.robot2014.commands;
  */
 
 public class TankDrive extends CommandBase {
-
+    
+    private boolean toggle;
+    private boolean buttonPressed;
+    
     public TankDrive() {
         requires(drivetrain);
     }
@@ -16,7 +19,18 @@ public class TankDrive extends CommandBase {
     }
 
     protected void execute() {
-        drivetrain.powerTankDrive(-oi.getLeftY(), -oi.getRightY());
+        if (oi.getToggleButton() && !buttonPressed) {
+            buttonPressed = true;
+            toggle = !toggle;
+        }
+        else if (buttonPressed && !oi.getToggleButton()) {
+            buttonPressed = false;
+        }
+        if (!toggle) {
+            drivetrain.powerTankDriveNormal(-oi.getLeftY(), -oi.getRightY());
+        } else {
+            drivetrain.powerTankDriveReverse(-oi.getLeftY(), -oi.getRightY());
+        }
     }
 
     protected boolean isFinished() {
@@ -24,12 +38,15 @@ public class TankDrive extends CommandBase {
     }
 
     protected void end() {
-        drivetrain.unpowerTankDrive();
+        drivetrain.murder();
     }
 
     protected void interrupted() {
-        drivetrain.unpowerTankDrive();
+        drivetrain.murder();
     }
     
+    public boolean isForward () {
+        return true;
+    }
     
 }

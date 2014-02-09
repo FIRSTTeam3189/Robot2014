@@ -16,7 +16,7 @@ public class ControllerTankDrive extends CommandBase {
     }
 
     protected void execute() {
-        drivetrain.powerTankDrive(oi.getControllerLeftY(), oi.getControllerRightY());
+        drivetrain.powerTankDriveNormal(oi.getControllerLeftY(), oi.getControllerRightY());
     }
 
     protected boolean isFinished() {

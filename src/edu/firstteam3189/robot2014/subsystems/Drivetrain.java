@@ -33,7 +33,7 @@ public class Drivetrain extends Subsystem {
      * @param leftPwr
      * @param rightPwr 
      */
-    public void powerTankDrive (double leftPwr, double rightPwr) {
+    public void powerTankDriveNormal (double leftPwr, double rightPwr) {
         left.set(leftPwr);
         leftTwo.set(leftPwr);
         // Negated because motor is flipped (Switching wires is BAD [illegal])
@@ -42,10 +42,25 @@ public class Drivetrain extends Subsystem {
     }
     
     /**
+     * Powers on the motors
+     * @param leftPwr
+     * @param rightPwr 
+     */
+    public void powerTankDriveReverse (double leftPwr, double rightPwr) {
+        left.set(-rightPwr);
+        leftTwo.set(-rightPwr);
+        // Negated because motor is flipped (Switching wires is BAD [illegal])
+        right.set(leftPwr);
+        rightTwo.set(leftPwr);
+    }
+    
+    /**
      * Sets motors power to 0
      */
-    public void unpowerTankDrive () {
+    public void murder () {
         left.set(0);
         right.set(0);
     }
+    
+    
 }

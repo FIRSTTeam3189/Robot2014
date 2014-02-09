@@ -26,7 +26,7 @@ public class Forward extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.powerTankDrive(Constants.FORWARD_PWR, Constants.FORWARD_PWR);
+        drivetrain.powerTankDriveNormal(Constants.FORWARD_PWR, Constants.FORWARD_PWR);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,13 +36,13 @@ public class Forward extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        drivetrain.unpowerTankDrive();
+        drivetrain.murder();
         System.out.println("Done with forward");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        drivetrain.unpowerTankDrive();
+        drivetrain.murder();
     }
 }

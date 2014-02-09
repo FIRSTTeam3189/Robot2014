@@ -10,6 +10,7 @@ import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.ShootTimeDelayed;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
 import edu.firstteam3189.robot2014.commands.ToggleCollector;
+import edu.firstteam3189.robot2014.commands.autonomous.DeployShooter;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
@@ -52,6 +53,7 @@ public class OI {
         controllerButton3.whenPressed(new CloseCollector());
         controllerButton4.whenPressed(new ShooterCommand());
         controllerButton5.whenPressed(new ControlCollector());
+        controllerButton8.whenPressed(new DeployShooter());
         
     }
     

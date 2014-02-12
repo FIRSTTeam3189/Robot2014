@@ -9,6 +9,7 @@ import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.ShootTimeDelayed;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
+import edu.firstteam3189.robot2014.commands.ShooterRelease;
 import edu.firstteam3189.robot2014.commands.TankDrive;
 import edu.firstteam3189.robot2014.commands.ToggleCollector;
 import edu.firstteam3189.robot2014.commands.autonomous.DeployShooter;
@@ -50,12 +51,11 @@ public class OI {
         rightButton2.whenPressed(new HighGear());
         rightButton3.whenPressed(new LowGear());
         
-        controllerButton1.whenPressed(new ShootTimeDelayed());
+        controllerButton1.whenPressed(new ShooterRelease());
         controllerButton2.whenPressed(new OpenCollector());
         controllerButton3.whenPressed(new CloseCollector());
         controllerButton4.whenPressed(new ShooterCommand());
         controllerButton5.whenPressed(new ControlCollector());
-        controllerButton8.whenPressed(new DeployShooter());
         
     }
     
@@ -85,6 +85,10 @@ public class OI {
     
     public boolean getToggleButton () {
         return leftJoystick.getRawButton(1);
+    }
+    
+    public boolean getLockButton(){
+        return controller.getRawButton(1);
     }
     
     public void updateStatus(){

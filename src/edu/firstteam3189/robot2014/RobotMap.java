@@ -20,6 +20,7 @@ public class RobotMap {
     
     // DIOs
     public static final int compressorPressureSwitch = 1;
+    public static final int shooterLimitSwitch = 2;
     
     // Relays
     public static final int compressorRelay = 1;
@@ -30,6 +31,8 @@ public class RobotMap {
     public static final int highGear = 2;
     public static final int collectorClose = 3;
     public static final int collectorOpen = 4;
+    public static final int shooterRetracted = 5;
+    public static final int shooterExtended = 6;
     
     // Analogs
     public static final int armPotentiometer = 1;

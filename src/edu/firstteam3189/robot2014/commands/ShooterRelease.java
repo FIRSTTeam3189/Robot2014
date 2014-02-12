@@ -2,48 +2,40 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.firstteam3189.robot2014.commands.autonomous;
-
-import edu.firstteam3189.robot2014.Configuration;
-import edu.firstteam3189.robot2014.Constants;
-import edu.firstteam3189.robot2014.commands.CommandBase;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author DevBo
+ * @author Michael
  */
-public class ShooterUp extends CommandBase {
+public class ShooterRelease extends CommandBase {
     
-    public ShooterUp() {
+    public ShooterRelease() {
+        // Use requires() here to declare subsystem dependencies
         requires(shooter);
-       
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(Configuration.SHOOTER_UP_DELAY);
+        shooter.unlock();
+        shooter.murder();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        shooter.giveSpeed(Configuration.SHOOTER_UP_PWR);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        shooter.murder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        shooter.murder();
     }
 }

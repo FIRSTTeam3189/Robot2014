@@ -24,7 +24,7 @@ public class ShootTimeDelayed extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setSpeed(Configuration.SHOOT_POWER);
+        shooter.giveSpeed(Configuration.SHOOT_POWER);
     }
 
     // Make this return true when this Command no longer needs to run execute()

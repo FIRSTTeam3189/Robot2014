@@ -29,9 +29,9 @@ public class Constants {
     public static final double SHOOT_TIME = 5;
     public static final double EXTEND_TIME = .5;
     
-    
-    
-    
+    public static final double wintchDownSpeed = 0.1;
+    public static final double wintchUpSpeed = 0.2;
+    public static final double wintchUpTime = 0.5;
             
     
     public static double DISTANCE_FROM_WALL = 60;

@@ -2,48 +2,52 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.firstteam3189.robot2014.commands.autonomous;
+package edu.firstteam3189.robot2014.commands;
 
-import edu.firstteam3189.robot2014.Configuration;
 import edu.firstteam3189.robot2014.Constants;
-import edu.firstteam3189.robot2014.commands.CommandBase;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author DevBo
  */
-public class ShooterUp extends CommandBase {
+public class ShooterDown extends CommandBase {
     
-    public ShooterUp() {
+    public ShooterDown() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
         requires(shooter);
-       
+        requires(latch);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(Configuration.SHOOTER_UP_DELAY);
+        shooter.setSpeed(Constants.wintchDownSpeed);
+        latch.unlatch();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        shooter.giveSpeed(Configuration.SHOOTER_UP_PWR);
+        if(latch.isLatched() && isTimedOut()){
+            shooter.murder();
+            shooter.unlock();
+        }
+        else if (!latch.isLatched() && shooter.isLimit()) {
+            latch.latch();
+            setTimeout(Constants.wintchUpTime);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        shooter.murder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        shooter.murder();
     }
 }

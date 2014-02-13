@@ -14,12 +14,10 @@ public class ControlCollector extends CommandBase {
     
     public ControlCollector() {
         requires(collector);
-        requires(shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.murder();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -36,6 +36,10 @@ public class Latch extends Subsystem {
         latch.toggle();
     }
     
+    public boolean isLatched(){
+        return latch.isExtended();
+    }
+    
     public void updateStatus () {
         SmartDashboard.putBoolean("Latch state: ", latch.isExtended());
     }

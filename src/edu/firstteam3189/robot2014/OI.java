@@ -10,10 +10,10 @@ import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
 import edu.firstteam3189.robot2014.commands.ShootTimeDelayed;
 import edu.firstteam3189.robot2014.commands.ShooterCommand;
+import edu.firstteam3189.robot2014.commands.ShooterDown;
 import edu.firstteam3189.robot2014.commands.ShooterRelease;
 import edu.firstteam3189.robot2014.commands.TankDrive;
 import edu.firstteam3189.robot2014.commands.ToggleCollector;
-import edu.firstteam3189.robot2014.commands.autonomous.DeployShooter;
 import edu.firstteam3189.robot2014.commands.net.CheckHotzone;
 import edu.firstteam3189.robot2014.commands.net.SendHotzoneCheck;
 import edu.firstteam3189.robot2014.commands.net.StartClient;
@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
- * @author Michael
+ * @author Michael but more Ky
  */
 public class OI {
     
@@ -57,7 +57,7 @@ public class OI {
         controllerButton3.whenPressed(new CloseCollector());
         controllerButton4.whenPressed(new ShooterCommand());
         controllerButton5.whenPressed(new ControlCollector());
-        controllerButton8.whenPressed(new LatchLatch());
+        controllerButton8.whenPressed(new ShooterDown());
     }
     
     public double getLeftY () {

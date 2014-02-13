@@ -24,9 +24,6 @@ public class ShooterCommand extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         shooter.giveSpeed(oi.getShooterY());
-        if (shooter.isLimit()) {
-            (new LatchLatch()).execute();
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -55,6 +55,14 @@ public class Piston {
         extended.set(!isRetracted);
     }
     
+    public boolean isExtended () {
+        return extended.get();
+    }
+    
+    public boolean isRetracted () {
+        return retracted.get();
+    }
+    
     /**
      * Checks if both are equal and defaults to extended
      * Else extend is set to retract state

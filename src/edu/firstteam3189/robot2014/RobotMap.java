@@ -33,6 +33,8 @@ public class RobotMap {
     public static final int collectorOpen = 4;
     public static final int shooterRetracted = 5;
     public static final int shooterExtended = 6;
+    public static final int latchRetracted = 7;
+    public static final int latchExtended = 8;
     
     // Analogs
     public static final int armPotentiometer = 1;

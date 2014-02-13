@@ -17,7 +17,7 @@ public class Shooter extends Subsystem {
     private Victor leftMotor;
     private DigitalInput limitSwitch;
     private AnalogChannel potentiometer;
-    private Piston piston;
+    private Piston winch;
     
     private static final double VOLTS_PER_DEGREE = 60 / 5;
     
@@ -26,7 +26,7 @@ public class Shooter extends Subsystem {
         leftMotor = new Victor(RobotMap.leftShooterMotor);
         limitSwitch = new DigitalInput(RobotMap.shooterLimitSwitch);
         potentiometer = new AnalogChannel(RobotMap.shooterPotentiometer);
-        piston = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
+        winch = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
     }
     
     public void setSpeed (double pwr){
@@ -53,12 +53,16 @@ public class Shooter extends Subsystem {
         
     }
     
+    public boolean isLimit () {
+        return limitSwitch.get();
+    }
+    
     public void lock(){
-        piston.extend();
+        winch.extend();
     }
     
     public void unlock(){
-        piston.retract();
+        winch.retract();
     }
 
     public void initDefaultCommand() {

@@ -9,16 +9,18 @@ package edu.firstteam3189.robot2014.commands;
  * @author Michael
  */
 public class ShooterRelease extends CommandBase {
-    
+
     public ShooterRelease() {
         // Use requires() here to declare subsystem dependencies
         requires(shooter);
+        requires(latch);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         shooter.unlock();
         shooter.murder();
+        latch.unlatch();
     }
 
     // Called repeatedly when this Command is scheduled to run

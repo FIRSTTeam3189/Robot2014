@@ -4,6 +4,7 @@ package edu.firstteam3189.robot2014;
 import edu.firstteam3189.robot2014.commands.CloseCollector;
 import edu.firstteam3189.robot2014.commands.ControlCollector;
 import edu.firstteam3189.robot2014.commands.HighGear;
+import edu.firstteam3189.robot2014.commands.LatchLatch;
 import edu.firstteam3189.robot2014.commands.LowGear;
 import edu.firstteam3189.robot2014.commands.OpenCollector;
 import edu.firstteam3189.robot2014.commands.ShiftGear;
@@ -56,7 +57,7 @@ public class OI {
         controllerButton3.whenPressed(new CloseCollector());
         controllerButton4.whenPressed(new ShooterCommand());
         controllerButton5.whenPressed(new ControlCollector());
-        
+        controllerButton8.whenPressed(new LatchLatch());
     }
     
     public double getLeftY () {

@@ -24,8 +24,13 @@ public class ControlCollector extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT + 
+        if (oi.getShooterY() > 0) {
+            collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT + 
                 ((1.0 - Constants.COLLECTOR_POWER_LIMIT) * oi.getShooterThrottle())));
+        }else{
+            collector.setPower(oi.getShooterY());
+        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

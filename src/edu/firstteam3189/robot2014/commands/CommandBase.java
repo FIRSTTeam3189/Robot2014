@@ -11,6 +11,7 @@ import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
 import edu.firstteam3189.robot2014.subsystems.Shooter;
 import edu.firstteam3189.robot2014.subsystems.IndicatorLight;
+import edu.firstteam3189.robot2014.subsystems.Latch;
 
 /**
  * 
@@ -28,6 +29,7 @@ public abstract class CommandBase extends Command {
     public static IndicatorLight light = new IndicatorLight();
     public static CollectorGrabber claw = new CollectorGrabber();
     public static Collector collector = new Collector();
+    public static Latch latch = new Latch();
     
 
     public static void init() {
@@ -53,5 +55,6 @@ public abstract class CommandBase extends Command {
         collector.updateStatus();
         light.updateStatus();
         oi.updateStatus();
+        latch.updateStatus();
     }
 }

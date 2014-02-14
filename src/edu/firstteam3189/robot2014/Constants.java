@@ -1,10 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -12,7 +6,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * 
  * This class is for constants only!
  * Variables that can potentially change because of SmartDashboard should be in Configuration.java
- * 
  */
 public class Constants {
     public static int cameraWidth = 640;
@@ -27,15 +20,14 @@ public class Constants {
     public static final double FORWARD_PWR = .6;
     
     public static final double SHOOT_TIME = 5;
-    public static final double EXTEND_TIME = .5;
     
-    public static final double wintchDownSpeed = 0.1;
-    public static final double wintchUpSpeed = 0.2;
-    public static final double wintchUpTime = 0.5;
+    public static final double WINTCH_DOWN_SPEED = 0.1;
+    public static final double WINTCH_UP_SPEED = 0.2;
+    public static final double WINTCH_UP_TIME = 0.5;
             
     
     public static double DISTANCE_FROM_WALL = 60;
-    public static double DISTANCE_FROM_WALL_TOLERANCE = 2.5;
+    public static double DISTANCE_FROM_WALL_TOLERANCE = 5;
     
     public static double COLLECTOR_POWER_LIMIT = 0.5;
 }

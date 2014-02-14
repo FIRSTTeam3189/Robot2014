@@ -1,17 +1,21 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Ian
+ * @author Michael
  */
-public class Compress extends CommandBase {
+public class GearBoxHighGear extends CommandBase {
     
-    public Compress() {
-        requires(compressor);
+    public GearBoxHighGear() {
+        requires(gearbox);
     }
 
     protected void initialize() {
-        compressor.start();
+        gearbox.shiftHighGear();
     }
 
     protected void execute() {
@@ -23,10 +27,10 @@ public class Compress extends CommandBase {
     }
 
     protected void end() {
-        compressor.stop();
+        
     }
 
     protected void interrupted() {
-        compressor.stop();
+        
     }
 }

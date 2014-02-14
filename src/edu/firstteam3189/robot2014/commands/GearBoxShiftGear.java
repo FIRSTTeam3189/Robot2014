@@ -2,31 +2,28 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Ian
+ * @author Michael
  */
-public class Compress extends CommandBase {
+public class GearBoxShiftGear extends CommandBase {
     
-    public Compress() {
-        requires(compressor);
+    public GearBoxShiftGear() {
+        requires(gearbox);
     }
 
     protected void initialize() {
-        compressor.start();
+        gearbox.shiftGear();
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {
-        compressor.stop();
     }
 
     protected void interrupted() {
-        compressor.stop();
     }
 }

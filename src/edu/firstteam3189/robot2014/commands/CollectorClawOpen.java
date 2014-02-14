@@ -2,16 +2,16 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Ian
+ * @author jameswomack
  */
-public class Compress extends CommandBase {
+public class CollectorClawOpen extends CommandBase {
     
-    public Compress() {
-        requires(compressor);
+    public CollectorClawOpen() {
+        requires(claw);
     }
 
     protected void initialize() {
-        compressor.start();
+        claw.openCollector();
     }
 
     protected void execute() {
@@ -23,10 +23,8 @@ public class Compress extends CommandBase {
     }
 
     protected void end() {
-        compressor.stop();
     }
 
     protected void interrupted() {
-        compressor.stop();
     }
 }

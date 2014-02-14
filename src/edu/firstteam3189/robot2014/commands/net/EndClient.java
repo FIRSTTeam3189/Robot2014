@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014.commands.net;
 
 import edu.firstteam3189.robot2014.commands.CommandBase;
@@ -17,10 +13,11 @@ public class EndClient extends CommandBase {
     }
 
     protected void initialize() {
+        client.close();
     }
 
     protected void execute() {
-        client.close();
+        
     }
 
     protected boolean isFinished() {

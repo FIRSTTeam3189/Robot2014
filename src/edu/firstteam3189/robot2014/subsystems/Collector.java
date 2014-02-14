@@ -15,40 +15,37 @@ public class Collector extends Subsystem {
     
     private Victor left;
     private Victor right;
-    private AnalogChannel potentiometer;
     
-    private static final double VOLTS_PER_DEGREE = 60 / 5;
-    
+    /**
+     * the subsystem controlling the collector arm
+     */
     public Collector () {
         left = new Victor(RobotMap.collectorLeft);
         right = new Victor(RobotMap.collectorRight);
-        potentiometer = new AnalogChannel(RobotMap.armPotentiometer);
     }
 
     public void initDefaultCommand() {
         setDefaultCommand(new CollectorDoNothing());
     }
     
+    /**
+     * sets the power of the collector arms motors
+     * @param pwr 
+     */
     public void setPower (double pwr) {
         left.set(pwr);
         right.set(-pwr);
     }
     
+    /**
+     * sets the power of the motors to 0 and -0
+     */
     public void murder () {
         left.set(0);
         right.set(-0);
     }
     
-        public double getVoltage(){
-        return potentiometer.getVoltage();
-    }
-    
-    public double getAngle(){
-        return getVoltage() * VOLTS_PER_DEGREE;
-    }
-    
     public void updateStatus(){
-        SmartDashboard.putNumber("Angle", getAngle());
-        SmartDashboard.putNumber("Pot. Voltage", getVoltage());
+        
     }
 }

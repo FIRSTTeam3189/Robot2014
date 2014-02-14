@@ -1,17 +1,15 @@
-
 package edu.firstteam3189.robot2014.commands;
 
 /**
  * 
  * @author Michael
  */
-
-public class TankDrive extends CommandBase {
+public class DriveTrainAdvancedTankDriveControl extends CommandBase {
     
     private boolean toggle;
     private boolean buttonPressed;
     
-    public TankDrive() {
+    public DriveTrainAdvancedTankDriveControl() {
         requires(drivetrain);
     }
 
@@ -44,6 +42,4 @@ public class TankDrive extends CommandBase {
     protected void interrupted() {
         drivetrain.murder();
     }
-    
-    
 }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014.commands.autonomous;
 
 import edu.firstteam3189.robot2014.Constants;
@@ -20,31 +16,25 @@ public class WaitForHotzone extends CommandBase {
         setTimeout(Constants.SHOOT_TIME - Constants.FORWARD_TIME);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
         done = false;
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (client.isInHotzone() || isTimedOut()) {
-            // TODO: add shoot code
+            // TODO add shoot code
             done = true;
         }
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return done;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
-        System.out.println("Done with HZ Check");
+        
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 }

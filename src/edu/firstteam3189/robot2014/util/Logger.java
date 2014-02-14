@@ -11,7 +11,6 @@ public class Logger {
 	public static final int TRACE = 5;
 	public static final int WARNING = 2;
 
-	/** This member holds the current level to be output. */
 	private static int level = TRACE;
 	private String prefix;
 

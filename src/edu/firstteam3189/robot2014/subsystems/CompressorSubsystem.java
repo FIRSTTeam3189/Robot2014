@@ -14,18 +14,26 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author Michael, Ian
  */
 public class CompressorSubsystem extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
     private Compressor compressor;
 
+    /**
+     * controls on board compressor
+     */
     public CompressorSubsystem() {
         compressor = new Compressor(RobotMap.compressorPressureSwitch, RobotMap.compressorRelay);
     }
 
+    /**
+     * starts compressing
+     */
     public void start () {
         compressor.start();
     }
     
+    /**
+     * stops compressing
+     */
     public void stop () {
         compressor.stop();
     }

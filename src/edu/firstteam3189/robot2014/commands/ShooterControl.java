@@ -2,19 +2,22 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Driver
+ * @author DevBo
  */
-public class CollectorDoNothing extends CommandBase {
+public class ShooterControl extends CommandBase {
     
-    public CollectorDoNothing() {
+    public ShooterControl() {
+        requires(shooter);
         requires(collector);
     }
 
     protected void initialize() {
+        shooter.lock();
+        collector.murder();
     }
 
     protected void execute() {
-        collector.murder();
+        shooter.giveSpeed(oi.getShooterY());
     }
 
     protected boolean isFinished() {
@@ -22,8 +25,10 @@ public class CollectorDoNothing extends CommandBase {
     }
 
     protected void end() {
+        shooter.murder();
     }
 
     protected void interrupted() {
+        shooter.murder();
     }
 }

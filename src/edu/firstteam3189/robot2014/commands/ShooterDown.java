@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.firstteam3189.robot2014.commands;
 
 import edu.firstteam3189.robot2014.Constants;
@@ -13,19 +9,15 @@ import edu.firstteam3189.robot2014.Constants;
 public class ShooterDown extends CommandBase {
     
     public ShooterDown() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(shooter);
         requires(latch);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.setSpeed(Constants.wintchDownSpeed);
+        shooter.setSpeed(Constants.WINTCH_DOWN_SPEED);
         latch.unlatch();
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if(latch.isLatched() && isTimedOut()){
             shooter.murder();
@@ -33,21 +25,19 @@ public class ShooterDown extends CommandBase {
         }
         else if (!latch.isLatched() && shooter.isLimit()) {
             latch.latch();
-            setTimeout(Constants.wintchUpTime);
+            setTimeout(Constants.WINTCH_UP_TIME);
         }
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
+        shooter.murder();
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
+        shooter.murder();
     }
 }

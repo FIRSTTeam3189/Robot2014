@@ -1,4 +1,3 @@
-
 package edu.firstteam3189.robot2014.commands.net;
 
 import edu.firstteam3189.robot2014.commands.CommandBase;
@@ -26,7 +25,7 @@ public class StartClient extends CommandBase {
     }
 
     protected void end() {
-        System.out.println("Done With Start Client");
+        
     }
 
     protected void interrupted() {

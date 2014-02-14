@@ -16,24 +16,31 @@ public class Shooter extends Subsystem {
     private Victor rightMotor;
     private Victor leftMotor;
     private DigitalInput limitSwitch;
-    private AnalogChannel potentiometer;
-    private Piston winch;
+    private Piston wintch;
     
-    private static final double VOLTS_PER_DEGREE = 60 / 5;
-    
+    /**
+     * the wintch of the shooter device
+     */
     public Shooter () {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
         limitSwitch = new DigitalInput(RobotMap.shooterLimitSwitch);
-        potentiometer = new AnalogChannel(RobotMap.shooterPotentiometer);
-        winch = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
+        wintch = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
     }
     
+    /**
+     * sets the speed the wintchs motor
+     * @param pwr 
+     */
     public void setSpeed (double pwr){
         rightMotor.set(pwr);
         leftMotor.set(pwr);
     }
     
+    /**
+     * gives a desired power of the motors and checks if is can
+     * @param pwr 
+     */
     public void giveSpeed (double pwr) {
         if(!limitSwitch.get()){
             setSpeed(pwr);
@@ -44,25 +51,37 @@ public class Shooter extends Subsystem {
         else{
             setSpeed(0);
         }
-        
     }
     
+    /**
+     * stops the wintch
+     */
     public void murder () {
         rightMotor.set(0);
         leftMotor.set(0);
         
     }
     
+    /**
+     * returns if the limit switch is being tripped
+     * @return 
+     */
     public boolean isLimit () {
         return limitSwitch.get();
     }
     
+    /**
+     * puts the wintch into gear so it can control it
+     */
     public void lock(){
-        winch.extend();
+        wintch.extend();
     }
     
+    /**
+     * takes the wintch out of gear so it moves freely
+     */
     public void unlock(){
-        winch.retract();
+        wintch.retract();
     }
 
     public void initDefaultCommand() {

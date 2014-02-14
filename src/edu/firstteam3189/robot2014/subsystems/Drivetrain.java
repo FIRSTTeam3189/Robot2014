@@ -1,8 +1,7 @@
-
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.commands.TankDrive;
+import edu.firstteam3189.robot2014.commands.DriveTrainAdvancedTankDriveControl;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,7 +15,9 @@ public class Drivetrain extends Subsystem {
     private Victor right;
     private Victor rightTwo;
     
-    
+    /**
+     * controls the drive train motors of the robot
+     */
     public Drivetrain () {
         left = new Victor(RobotMap.leftMotors);
         leftTwo = new Victor(RobotMap.leftTwoMotors);
@@ -25,7 +26,7 @@ public class Drivetrain extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new TankDrive());
+        setDefaultCommand(new DriveTrainAdvancedTankDriveControl());
     }
     
     /**
@@ -61,6 +62,4 @@ public class Drivetrain extends Subsystem {
         left.set(0);
         right.set(0);
     }
-    
-    
 }

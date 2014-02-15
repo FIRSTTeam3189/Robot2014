@@ -33,8 +33,8 @@ public class Collector extends Subsystem {
      * @param pwr 
      */
     public void setPower (double pwr) {
-        left.set(pwr);
-        right.set(-pwr);
+        left.set(-pwr);
+        right.set(pwr);
     }
     
     /**

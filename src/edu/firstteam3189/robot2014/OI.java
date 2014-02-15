@@ -37,6 +37,7 @@ public class OI {
     private Button controllerButton5 = new JoystickButton(controller, 5);
     private Button controllerButton6 = new JoystickButton(controller, 6);
     private Button controllerButton7 = new JoystickButton(controller, 7);
+    private Button controllerButton10 = new JoystickButton(controller, 10);
     
     
     public OI () {
@@ -51,6 +52,7 @@ public class OI {
         controllerButton5.whenPressed(new WintchDown());
         controllerButton6.whenPressed(new WintchControl());
         controllerButton7.whenPressed(new CollectorControl());
+        controllerButton10.whenPressed(new LatchLatch());
     }
     
     public double getLeftY () {

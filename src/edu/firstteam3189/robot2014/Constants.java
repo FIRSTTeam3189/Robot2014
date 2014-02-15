@@ -19,7 +19,7 @@ public class Constants {
     public static int CLIENT_IS_HZ = 2;
     
     public static double FORWARD_TIME = 2.5;
-    public static double FORWARD_PWR = .5;
+    public static double FORWARD_PWR = -0.5;
     
     public static double AUTO_WAIT_SHOOT_TIME = 5;
     

@@ -18,7 +18,7 @@ public class Latch extends Subsystem {
      * controls the latch for the shooter
      */
     public Latch () {
-        latch = new Piston(RobotMap.latchExtended, RobotMap.latchRetracted);
+        latch = new Piston(RobotMap.latchExtended, RobotMap.latchRetracted, false);
     }
     
     /**

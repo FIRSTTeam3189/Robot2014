@@ -60,8 +60,7 @@ public class Drivetrain extends Subsystem {
      * Sets motors power to 0
      */
     public void murder () {
-        left.set(0);
-        right.set(0);
+        powerTankDriveNormal(0, 0);
     }
     
     public void updateStatus(){

@@ -1,5 +1,6 @@
 package edu.firstteam3189.robot2014.commands.autonomous;
 
+import edu.firstteam3189.robot2014.commands.ReleaseShootingSystems;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -13,6 +14,6 @@ public class Autonomous extends CommandGroup {
         addSequential(new Forward());
         
         addSequential(new WaitForHotzone());
-        
+        addSequential(new ReleaseShootingSystems());
     }
 }

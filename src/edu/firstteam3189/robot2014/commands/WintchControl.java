@@ -4,20 +4,20 @@ package edu.firstteam3189.robot2014.commands;
  *
  * @author DevBo
  */
-public class ShooterControl extends CommandBase {
+public class WintchControl extends CommandBase {
     
-    public ShooterControl() {
-        requires(shooter);
+    public WintchControl() {
+        requires(wintch);
         requires(collector);
     }
 
     protected void initialize() {
-        shooter.lock();
+        wintch.lock();
         collector.murder();
     }
 
     protected void execute() {
-        shooter.giveSpeed(oi.getShooterY());
+        wintch.giveSpeed(oi.getShooterY());
     }
 
     protected boolean isFinished() {
@@ -25,10 +25,10 @@ public class ShooterControl extends CommandBase {
     }
 
     protected void end() {
-        shooter.murder();
+        wintch.murder();
     }
 
     protected void interrupted() {
-        shooter.murder();
+        wintch.murder();
     }
 }

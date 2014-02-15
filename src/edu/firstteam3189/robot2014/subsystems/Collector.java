@@ -1,8 +1,8 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
+import edu.firstteam3189.robot2014.commands.CollectorControl;
 import edu.firstteam3189.robot2014.commands.CollectorDoNothing;
-import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -25,7 +25,7 @@ public class Collector extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new CollectorDoNothing());
+        setDefaultCommand(new CollectorControl());
     }
     
     /**
@@ -46,6 +46,7 @@ public class Collector extends Subsystem {
     }
     
     public void updateStatus(){
-        
+        SmartDashboard.putData(this);
+        SmartDashboard.putNumber("Collector Speed", right.get());
     }
 }

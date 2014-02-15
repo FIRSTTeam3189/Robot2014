@@ -4,6 +4,7 @@ import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.DriveTrainAdvancedTankDriveControl;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * @author Andrew, Michael
@@ -61,5 +62,11 @@ public class Drivetrain extends Subsystem {
     public void murder () {
         left.set(0);
         right.set(0);
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putData(this);
+        SmartDashboard.putNumber("Drivetrain Left Track", left.get());
+        SmartDashboard.putNumber("Crivetrain Right Track", right.get());
     }
 }

@@ -1,18 +1,19 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.commands.ShooterDoNothing;
+import edu.firstteam3189.robot2014.commands.WintchDoNothing;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author Andrew, Michael
  */
-public class Shooter extends Subsystem {
+public class Wintch extends Subsystem {
     private Victor rightMotor;
     private Victor leftMotor;
     private DigitalInput limitSwitch;
@@ -21,7 +22,7 @@ public class Shooter extends Subsystem {
     /**
      * the wintch of the shooter device
      */
-    public Shooter () {
+    public Wintch () {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
         limitSwitch = new DigitalInput(RobotMap.shooterLimitSwitch);
@@ -45,8 +46,8 @@ public class Shooter extends Subsystem {
         if(!limitSwitch.get()){
             setSpeed(pwr);
         }
-        else if(pwr > 0) {
-            setSpeed(0);
+        else if(pwr < 0) {
+            setSpeed(pwr);
         }
         else{
             setSpeed(0);
@@ -83,8 +84,19 @@ public class Shooter extends Subsystem {
     public void unlock(){
         wintch.retract();
     }
+    
+    public boolean isLocked(){
+        return wintch.isExtended();
+    }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new ShooterDoNothing());
+        setDefaultCommand(new WintchDoNothing());
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putData(this);
+        SmartDashboard.putNumber("Wintch Speed", rightMotor.get());
+        SmartDashboard.putBoolean("Wintch Limit Switch Tripped", limitSwitch.get());
+        SmartDashboard.putBoolean("Wintch In Gear", wintch.isExtended());
     }
 }

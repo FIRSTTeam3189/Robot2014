@@ -4,6 +4,7 @@ import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.GearBoxLowGear;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -41,7 +42,19 @@ public class Gearbox extends Subsystem {
         piston.toggle();
     }
     
+    public String getGear(){
+        if(piston.isRetracted()){
+            return "Low Gear";
+        }
+        return "High Gear";
+    }
+    
     public void initDefaultCommand() {
         setDefaultCommand(new GearBoxLowGear());
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putData(this);
+        SmartDashboard.putString("Drivetrain Gear", getGear());
     }
 }

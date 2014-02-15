@@ -7,11 +7,11 @@ package edu.firstteam3189.robot2014.commands;
 public class CollectorClawToggle extends CommandBase {
     
     public CollectorClawToggle() {
-        requires(claw);
+        requires(collerctorGrabber);
     }
 
     protected void initialize() {
-        claw.toggleCollector();
+        collerctorGrabber.toggleCollector();
     }
 
     protected void execute() {

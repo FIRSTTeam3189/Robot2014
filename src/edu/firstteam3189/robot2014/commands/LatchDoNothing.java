@@ -1,21 +1,23 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author jameswomack
+ * @author DevBo
  */
-public class CollectorClawClose extends CommandBase {
+public class LatchDoNothing extends CommandBase {
     
-    public CollectorClawClose() {
-        requires(collerctorGrabber);
+    public LatchDoNothing() {
+        requires(latch);
     }
 
     protected void initialize() {
-        collerctorGrabber.closeCollector();
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

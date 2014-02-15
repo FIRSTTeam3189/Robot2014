@@ -147,9 +147,10 @@ public class Client extends Subsystem {
      * holds all smart dashboard updates
      */
     public void updateStatus() {
-            SmartDashboard.putNumber("Client Received", code.getReceived());
-            SmartDashboard.putString("Client Rects", processedRects);
-            SmartDashboard.putString("Client Last Action: ", getLastProcess());
+        SmartDashboard.putData(this);
+        SmartDashboard.putNumber("Client Received", code.getReceived());
+        SmartDashboard.putString("Client Rects", processedRects);
+        SmartDashboard.putString("Client Last Action: ", getLastProcess());
     }
 
     public boolean isInHotzone () {

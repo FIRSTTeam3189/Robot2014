@@ -4,6 +4,7 @@ import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.CollectorClawClose;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -43,5 +44,10 @@ public class CollectorGrabber extends Subsystem {
      */
     public void toggleCollector () {
         claw.toggle();
-    }    
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putData(this);
+        SmartDashboard.putBoolean("Collector Open", claw.isExtended());
+    }
 }

@@ -4,14 +4,14 @@ package edu.firstteam3189.robot2014.commands;
  *
  * @author Michael
  */
-public class ShooterDoNothing extends CommandBase {
+public class WintchDoNothing extends CommandBase {
     
-    public ShooterDoNothing() {
-        requires(shooter);
+    public WintchDoNothing() {
+        requires(wintch);
     }
 
     protected void initialize() {
-        shooter.murder();
+        wintch.murder();
     }
 
     protected void execute() {

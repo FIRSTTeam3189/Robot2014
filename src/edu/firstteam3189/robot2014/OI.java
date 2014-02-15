@@ -6,9 +6,10 @@ import edu.firstteam3189.robot2014.commands.GearBoxHighGear;
 import edu.firstteam3189.robot2014.commands.GearBoxLowGear;
 import edu.firstteam3189.robot2014.commands.CollectorClawOpen;
 import edu.firstteam3189.robot2014.commands.GearBoxShiftGear;
-import edu.firstteam3189.robot2014.commands.LatchUnlatch;
-import edu.firstteam3189.robot2014.commands.ShooterControl;
-import edu.firstteam3189.robot2014.commands.ShooterDown;
+import edu.firstteam3189.robot2014.commands.LatchLatch;
+import edu.firstteam3189.robot2014.commands.ReleaseShootingSystems;
+import edu.firstteam3189.robot2014.commands.WintchControl;
+import edu.firstteam3189.robot2014.commands.WintchDown;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -36,7 +37,6 @@ public class OI {
     private Button controllerButton5 = new JoystickButton(controller, 5);
     private Button controllerButton6 = new JoystickButton(controller, 6);
     private Button controllerButton7 = new JoystickButton(controller, 7);
-    private Button controllerButton8 = new JoystickButton(controller, 8);
     
     
     public OI () {
@@ -44,12 +44,13 @@ public class OI {
         rightButton2.whenPressed(new GearBoxHighGear());
         rightButton3.whenPressed(new GearBoxLowGear());
         
-        controllerButton1.whenPressed(new LatchUnlatch());
+        controllerButton1.whenPressed(new ReleaseShootingSystems());
         controllerButton2.whenPressed(new CollectorClawOpen());
         controllerButton3.whenPressed(new CollectorClawClose());
-        controllerButton4.whenPressed(new ShooterControl());
-        controllerButton5.whenPressed(new CollectorControl());
-        controllerButton8.whenPressed(new ShooterDown());
+        controllerButton4.whenPressed(new WintchDown());
+        controllerButton5.whenPressed(new WintchDown());
+        controllerButton6.whenPressed(new WintchControl());
+        controllerButton7.whenPressed(new CollectorControl());
     }
     
     public double getLeftY () {
@@ -71,12 +72,12 @@ public class OI {
     public boolean getToggleButton () {
         return leftJoystick.getRawButton(1);
     }
-    
-    public boolean getLockButton(){
-        return controller.getRawButton(1);
-    }
-    
+
     public void updateStatus(){
-        SmartDashboard.putNumber("Shooter Y", getShooterY());
+        SmartDashboard.putNumber("OI Shooter Y", getShooterY());
+        SmartDashboard.putNumber("OI Left Y", getLeftY());
+        SmartDashboard.putNumber("OI Right Y", getRightY());
+        SmartDashboard.putNumber("OI Shooter Throttle", getShooterY());
+        SmartDashboard.putBoolean("OI Toggle Drive", getToggleButton());
     }
 }

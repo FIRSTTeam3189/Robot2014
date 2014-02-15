@@ -75,9 +75,9 @@ public class IndicatorLight extends Subsystem {
     }
     
     public void updateStatus () {
-        SmartDashboard.putNumber("Voltage", getVoltage());
+        SmartDashboard.putData(this);
         SmartDashboard.putNumber("Distance(inches)", getDistance());
-        SmartDashboard.putBoolean("Light", isLightOn());
+        SmartDashboard.putBoolean("Light On", isLightOn());
     }
 
     protected void initDefaultCommand() {

@@ -1,7 +1,7 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.commands.LatchUnlatch;
+import edu.firstteam3189.robot2014.commands.LatchDoNothing;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -49,12 +49,13 @@ public class Latch extends Subsystem {
     public boolean isLatched(){
         return latch.isExtended();
     }
-    
-    public void updateStatus () {
-        SmartDashboard.putBoolean("Latch state: ", latch.isExtended());
-    }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new LatchUnlatch());
+        setDefaultCommand(new LatchDoNothing());
+    }
+    
+    public void updateStatus () {
+        SmartDashboard.putData(this);
+        SmartDashboard.putBoolean("Latch Latched", latch.isExtended());
     }
 }

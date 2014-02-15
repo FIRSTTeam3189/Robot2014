@@ -1,5 +1,7 @@
 package edu.firstteam3189.robot2014;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  *
  * @author Michael
@@ -16,18 +18,41 @@ public class Constants {
     public static int CLIENT_SEND_CHECK = 69;
     public static int CLIENT_IS_HZ = 2;
     
-    public static final double FORWARD_TIME = 2;
-    public static final double FORWARD_PWR = .6;
+    public static double FORWARD_TIME = 2.5;
+    public static double FORWARD_PWR = .5;
     
-    public static final double SHOOT_TIME = 5;
+    public static double AUTO_WAIT_SHOOT_TIME = 5;
     
-    public static final double WINTCH_DOWN_SPEED = 0.1;
-    public static final double WINTCH_UP_SPEED = 0.2;
-    public static final double WINTCH_UP_TIME = 0.5;
-            
+    public static double WINTCH_DOWN_SPEED = 0.35;
+    public static double WINTCH_UP_SPEED = -0.25;
+    public static double WINTCH_UP_TIME = 0.75;
     
     public static double DISTANCE_FROM_WALL = 60;
     public static double DISTANCE_FROM_WALL_TOLERANCE = 5;
     
     public static double COLLECTOR_POWER_LIMIT = 0.5;
+    
+    public static void initStatus(){
+        SmartDashboard.putNumber("Auto Forward Time", FORWARD_TIME);
+        SmartDashboard.putNumber("Auto Forward Power", FORWARD_PWR);
+        SmartDashboard.putNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
+        SmartDashboard.putNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
+        SmartDashboard.putNumber("Wintch up Speed", WINTCH_UP_SPEED);
+        SmartDashboard.putNumber("Wintch Up Time", WINTCH_UP_TIME);
+        SmartDashboard.putNumber("Indecator Distance", DISTANCE_FROM_WALL);
+        SmartDashboard.putNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
+        SmartDashboard.putNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT);
+    }
+    
+    public static void updateStatus(){
+        SmartDashboard.getNumber("Auto Forward Time", FORWARD_TIME);
+        SmartDashboard.getNumber("Auto Forward Power", FORWARD_PWR);
+        SmartDashboard.getNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
+        SmartDashboard.getNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
+        SmartDashboard.getNumber("Wintch up Speed", WINTCH_UP_SPEED);
+        SmartDashboard.getNumber("Wintch Up Time", WINTCH_UP_TIME);
+        SmartDashboard.getNumber("Indecator Distance", DISTANCE_FROM_WALL);
+        SmartDashboard.getNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
+        SmartDashboard.getNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT);
+    }
 }

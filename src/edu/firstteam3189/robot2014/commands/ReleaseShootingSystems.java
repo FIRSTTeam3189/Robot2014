@@ -2,31 +2,30 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author Ian
+ * @author DevBo
  */
-public class Compress extends CommandBase {
+public class ReleaseShootingSystems extends CommandBase {
     
-    public Compress() {
-        requires(compressor);
+    public ReleaseShootingSystems() {
+        requires(wintch);
+        requires(latch);
     }
 
     protected void initialize() {
-        compressor.start();
+        wintch.unlock();
+        latch.unlatch();
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {
         return false;
     }
-
+    
     protected void end() {
-        compressor.stop();
     }
 
     protected void interrupted() {
-        compressor.stop();
     }
 }

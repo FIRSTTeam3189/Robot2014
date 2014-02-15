@@ -5,9 +5,10 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.commands.Compress;
+import edu.firstteam3189.robot2014.commands.CompressorStart;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -39,6 +40,11 @@ public class CompressorSubsystem extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new Compress());
+        setDefaultCommand(new CompressorStart());
+    }
+    
+    public void updateStatus(){
+        SmartDashboard.putData(this);
+        SmartDashboard.putBoolean("Compressor Running", compressor.enabled());
     }
 }

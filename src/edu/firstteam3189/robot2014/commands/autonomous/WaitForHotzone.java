@@ -13,7 +13,7 @@ public class WaitForHotzone extends CommandBase {
     
     public WaitForHotzone() {
         requires(client);
-        setTimeout(Constants.SHOOT_TIME - Constants.FORWARD_TIME);
+        setTimeout(Constants.AUTO_WAIT_SHOOT_TIME - Constants.FORWARD_TIME);
     }
 
     protected void initialize() {

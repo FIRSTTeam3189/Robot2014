@@ -10,6 +10,7 @@ import edu.firstteam3189.robot2014.commands.LatchLatch;
 import edu.firstteam3189.robot2014.commands.ReleaseShootingSystems;
 import edu.firstteam3189.robot2014.commands.WintchControl;
 import edu.firstteam3189.robot2014.commands.WintchDown;
+import edu.firstteam3189.robot2014.commands.autonomous.Forward;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -37,6 +38,7 @@ public class OI {
     private Button controllerButton5 = new JoystickButton(controller, 5);
     private Button controllerButton6 = new JoystickButton(controller, 6);
     private Button controllerButton7 = new JoystickButton(controller, 7);
+    private Button controllerButton8 = new JoystickButton(controller, 8);
     private Button controllerButton10 = new JoystickButton(controller, 10);
     
     
@@ -52,6 +54,7 @@ public class OI {
         controllerButton5.whenPressed(new WintchDown());
         controllerButton6.whenPressed(new WintchControl());
         controllerButton7.whenPressed(new CollectorControl());
+        controllerButton8.whenPressed(new Forward());
         controllerButton10.whenPressed(new LatchLatch());
     }
     

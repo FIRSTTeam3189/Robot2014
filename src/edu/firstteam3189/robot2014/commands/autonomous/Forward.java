@@ -2,6 +2,8 @@ package edu.firstteam3189.robot2014.commands.autonomous;
 
 import edu.firstteam3189.robot2014.Constants;
 import edu.firstteam3189.robot2014.commands.CommandBase;
+import edu.firstteam3189.robot2014.util.Counter;
+import edu.wpi.first.wpilibj.image.CurveOptions;
 
 /**
  *
@@ -9,16 +11,24 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  */
 public class Forward extends CommandBase {
     
+    private Counter counter = new Counter();
+    
     public Forward() {
         requires(drivetrain);
-        setTimeout(Constants.FORWARD_TIME);
     }
 
     protected void initialize() {
+        setTimeout(Constants.FORWARD_TIME);
+        counter.setCounter(Constants.FORWARD_TRANSITION);
+        drivetrain.powerTankDriveNormal(Constants.FORWARD_START_PWR, Constants.FORWARD_START_PWR);
     }
 
     protected void execute() {
-        drivetrain.powerTankDriveNormal(Constants.FORWARD_PWR, Constants.FORWARD_PWR);
+        if(counter.isTimedOut()){
+            drivetrain.powerTankDriveNormal(Constants.FORWARD_PWR, Constants.FORWARD_PWR);
+            counter.setCounter(10);
+        }
+        
     }
 
     protected boolean isFinished() {

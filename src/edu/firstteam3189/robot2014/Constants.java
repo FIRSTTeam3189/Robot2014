@@ -38,7 +38,7 @@ public class Constants {
         SmartDashboard.putNumber("Auto Forward Time", FORWARD_TIME);
         SmartDashboard.putNumber("Auto Forward Transtion", FORWARD_TRANSITION);
         SmartDashboard.putNumber("Auto Forward Power", FORWARD_PWR);
-        SmartDashboard.putNumber("Auto Forward start Power", FORWARD_START_PWR);
+        SmartDashboard.putNumber("Auto Forward Start Power", FORWARD_START_PWR);
         SmartDashboard.putNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
         SmartDashboard.putNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
         SmartDashboard.putNumber("Wintch up Speed", WINTCH_UP_SPEED);
@@ -52,7 +52,7 @@ public class Constants {
         FORWARD_TIME = SmartDashboard.getNumber("Auto Forward Time", FORWARD_TIME);
         FORWARD_TRANSITION = SmartDashboard.getNumber("Auto Forward Transtion", FORWARD_TRANSITION);
         FORWARD_PWR = SmartDashboard.getNumber("Auto Forward Power", FORWARD_PWR);
-        FORWARD_START_PWR = SmartDashboard.getNumber("Auto Forward start Power", FORWARD_START_PWR);
+        FORWARD_START_PWR = SmartDashboard.getNumber("Auto Forward Start Power", FORWARD_START_PWR);
         AUTO_WAIT_SHOOT_TIME = SmartDashboard.getNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
         WINTCH_DOWN_SPEED = SmartDashboard.getNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
         WINTCH_UP_SPEED = SmartDashboard.getNumber("Wintch up Speed", WINTCH_UP_SPEED);

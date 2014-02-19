@@ -66,6 +66,6 @@ public class Drivetrain extends Subsystem {
     public void updateStatus(){
         SmartDashboard.putData(this);
         SmartDashboard.putNumber("Drivetrain Left Track", left.get());
-        SmartDashboard.putNumber("Crivetrain Right Track", right.get());
+        SmartDashboard.putNumber("Drivetrain Right Track", right.get());
     }
 }

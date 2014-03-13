@@ -18,21 +18,22 @@ public class Constants {
     public static int CLIENT_SEND_CHECK = 69;
     public static int CLIENT_IS_HZ = 2;
     
-    public static double FORWARD_TIME = 4;
+    public static double FORWARD_TIME = 2;
     public static double FORWARD_PWR = -0.9;
-    public static double FORWARD_START_PWR = 0.4;
+    public static double FORWARD_START_PWR = -0.4;
     public static double FORWARD_TRANSITION = 1.5;
     
-    public static double AUTO_WAIT_SHOOT_TIME = 7.5;
+    public static double AUTO_WAIT_SHOOT_TIME = 6.5;
     
     public static double WINTCH_DOWN_SPEED = 0.35;
     public static double WINTCH_UP_SPEED = -0.25;
-    public static double WINTCH_UP_TIME = 0.75;
+    public static double WINTCH_UP_TIME = 0.25;
     
     public static double DISTANCE_FROM_WALL = 60;
     public static double DISTANCE_FROM_WALL_TOLERANCE = 5;
     
-    public static double COLLECTOR_POWER_LIMIT = 0.5;
+    public static double COLLECTOR_POWER_LIMIT_DOWN = 0.5;
+    public static double COLLECTOR_POWER_LIMIT_UP = 0.85;
     
     public static void initStatus(){
         SmartDashboard.putNumber("Auto Forward Time", FORWARD_TIME);
@@ -45,7 +46,7 @@ public class Constants {
         SmartDashboard.putNumber("Wintch Up Time", WINTCH_UP_TIME);
         SmartDashboard.putNumber("Indecator Distance", DISTANCE_FROM_WALL);
         SmartDashboard.putNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
-        SmartDashboard.putNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT);
+        SmartDashboard.putNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);
     }
     
     public static void updateStatus(){
@@ -59,6 +60,6 @@ public class Constants {
         WINTCH_UP_TIME = SmartDashboard.getNumber("Wintch Up Time", WINTCH_UP_TIME);
         DISTANCE_FROM_WALL = SmartDashboard.getNumber("Indecator Distance", DISTANCE_FROM_WALL);
         DISTANCE_FROM_WALL_TOLERANCE = SmartDashboard.getNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
-        COLLECTOR_POWER_LIMIT = SmartDashboard.getNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT);
+        COLLECTOR_POWER_LIMIT_DOWN = SmartDashboard.getNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);
     }
 }

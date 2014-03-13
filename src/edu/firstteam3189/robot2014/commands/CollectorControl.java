@@ -17,10 +17,9 @@ public class CollectorControl extends CommandBase {
 
     protected void execute() {
         if (oi.getShooterY() > 0) {
-            collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT + 
-                ((1.0 - Constants.COLLECTOR_POWER_LIMIT) * oi.getShooterThrottle())));
+            collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT_DOWN));
         }else{
-            collector.setPower(oi.getShooterY());
+            collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT_UP));
         }
     }
 

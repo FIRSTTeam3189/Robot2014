@@ -2,6 +2,7 @@ package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
 import edu.firstteam3189.robot2014.commands.GearBoxLowGear;
+import edu.firstteam3189.robot2014.commands.GearBoxNothing;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -50,7 +51,7 @@ public class Gearbox extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new GearBoxLowGear());
+        setDefaultCommand(new GearBoxNothing());
     }
     
     public void updateStatus(){

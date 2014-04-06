@@ -21,11 +21,11 @@ public class Constants {
     public static double FORWARD_TIME = 2;
     public static double FORWARD_PWR = -0.9;
     public static double FORWARD_START_PWR = -0.4;
-    public static double FORWARD_TRANSITION = 1.5;
+    public static double FORWARD_TRANSITION = 3;
     
     public static double AUTO_WAIT_SHOOT_TIME = 6.5;
     
-    public static double WINTCH_DOWN_SPEED = 0.35;
+    public static double WINTCH_DOWN_SPEED = 0.5;
     public static double WINTCH_UP_SPEED = -0.25;
     public static double WINTCH_UP_TIME = 0.25;
     

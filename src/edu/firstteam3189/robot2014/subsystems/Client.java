@@ -6,6 +6,8 @@ import edu.firstteam3189.robot2014.util.Sockert;
 import java.io.IOException;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.networktables2.client.NetworkTableClient;
 import edu.wpi.first.wpilibj.networktables2.util.List;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,12 +20,13 @@ public class Client extends Subsystem {
     private static final Logger logger = new Logger(Client.class);
 
     private List clientProcesses = new List();
-    private Sockert code;
+    private NetworkTable code;
+    private int codeRecieved;
     private String processedRects = "0#";
 
     public Client() {
         clientProcesses.add("welcome to DevBo client");
-        code = new Sockert("10.31.89.5", 1180);
+        
     }
 
     /**
@@ -36,16 +39,9 @@ public class Client extends Subsystem {
         clientProcesses.add(process);
     }
 
-    public boolean checkInputCodeStream() {
-        try {
-            if (code.checkInputSteam()) {
-                return true;
-            }
-            addProcess("read from code stream: " + code.getReceived());
-        } catch (IOException ex) {
-            addProcess("failed to read code stream: " + ex);
-        }
-        return false;
+    public boolean getInputCodeStream() {
+        codeRecieved = (int) code.getNumber("client", -1);
+        return codeRecieved != -1;
     }
 
     /**
@@ -59,29 +55,15 @@ public class Client extends Subsystem {
      * sends disconnect code and closes local socket connections
      */
     public void close() {
-        try {
-            if(isConnected()){ 
-                code.outputToStream(Constants.CLIENT_DISCONNECT); 
-                addProcess("sent disconnect code");
-            }
-        } catch (IOException ex) {
-            addProcess("failed to send disconnect code");
-        }
-
-        if (code.isConnected()) {
-            code.closeSocket();
-            addProcess("disconnected from code socket");
-        } else {
-            addProcess("failed to disconnect: not connected to socket");
-        }
+        code = null;
     }
 
     public int getCodeError() {
-        return code.getError();
+        return 0;
     }
 
     public int getCodeReceived() {
-        return code.getReceived();
+        return codeRecieved;
     }
 
     /**
@@ -101,27 +83,15 @@ public class Client extends Subsystem {
     }
 
     public void nullCodeReceived() {
-        code.nullReceived();
+        code = null;
     }
 
-    public void outputToCodeStream(int code, String clientProcess) {
-        try {
-            this.code.outputToStream(code);
-            addProcess(clientProcess);
-        } catch (IOException ex) {
-            addProcess("error" + ex);
-            addProcess("failed to :" + clientProcess);
-        }
+    public void outputToCodeStream(int item, String clientProcess) {
+        code.putNumber("robot", item);
     }
 
     public void outputToCodeStream(String item, String clientProcess) {
-        try {
-            code.outputToStream(item);
-            addProcess(clientProcess);
-        } catch (IOException ex) {
-            addProcess("error" + ex);
-            addProcess("failed to :" + clientProcess);
-        }
+        code.putString("robot", item);
     }
 
 
@@ -129,17 +99,7 @@ public class Client extends Subsystem {
      * try's to connect to servers socket.
      */
     public boolean setUp() {
-        if(code.isConnected()){
-            try {
-                code.connectSocket();
-                addProcess("socket setup finished successfully");
-                return true;
-            } catch (Exception e) {
-                addProcess("socket setup failed: " + e);
-            }
-        }else {
-            addProcess("socket is already connected");
-        }
+        code = NetworkTable.getTable("data");
         return false;
     }
 
@@ -148,13 +108,13 @@ public class Client extends Subsystem {
      */
     public void updateStatus() {
         SmartDashboard.putData(this);
-        SmartDashboard.putNumber("Client Received", code.getReceived());
+        SmartDashboard.putNumber("Client Received", codeRecieved);
         SmartDashboard.putString("Client Rects", processedRects);
         SmartDashboard.putString("Client Last Action: ", getLastProcess());
     }
 
     public boolean isInHotzone () {
-        return code.getReceived() >= Constants.CLIENT_IS_HZ;
+        return codeRecieved >= Constants.CLIENT_IS_HZ;
     }
 
     protected void initDefaultCommand() {

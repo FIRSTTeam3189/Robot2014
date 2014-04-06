@@ -12,13 +12,15 @@ import edu.wpi.first.wpilibj.image.CurveOptions;
 public class Forward extends CommandBase {
     
     private Counter counter = new Counter();
+    private double time;
     
-    public Forward() {
+    public Forward(double time) {
         requires(drivetrain);
+        this.time = time;
     }
 
     protected void initialize() {
-        setTimeout(Constants.FORWARD_TIME);
+        setTimeout(time);
         counter.setCounter(Constants.FORWARD_TRANSITION);
         drivetrain.powerTankDriveNormal(Constants.FORWARD_START_PWR, Constants.FORWARD_START_PWR);
     }

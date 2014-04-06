@@ -21,7 +21,7 @@ public class CheckHotzone extends CommandBase {
     }
 
     protected boolean isFinished() {
-        return !client.isConnected() || isTimedOut() ||client.checkInputCodeStream();
+        return !client.isConnected() || isTimedOut() || client.getInputCodeStream();
     }
 
     protected void end() {

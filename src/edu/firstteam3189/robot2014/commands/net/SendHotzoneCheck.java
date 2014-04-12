@@ -8,7 +8,6 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  * @author Michael, Ian
  */
 public class SendHotzoneCheck extends CommandBase {
-    
     public SendHotzoneCheck() {
         requires(client);
     }

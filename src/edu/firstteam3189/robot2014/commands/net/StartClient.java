@@ -7,7 +7,6 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  * @author Michael
  */
 public class StartClient extends CommandBase {
-
     public StartClient() {
         requires(client);
         setTimeout(1);
@@ -25,7 +24,6 @@ public class StartClient extends CommandBase {
     }
 
     protected void end() {
-        
     }
 
     protected void interrupted() {

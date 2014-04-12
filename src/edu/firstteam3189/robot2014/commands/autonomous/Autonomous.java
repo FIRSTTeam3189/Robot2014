@@ -11,12 +11,11 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
  * @author Michael
  */
 public class Autonomous extends CommandGroup {
-    
     public Autonomous() {
         addParallel(new GetRects());
         addParallel(new CollectorClawOpen());
         addSequential(new Forward(Constants.FORWARD_TIME));
-        
+
         addSequential(new WaitForHotzone());
         addSequential(new ReleaseShootingSystems());
         addSequential(new WaitCommand(.5));

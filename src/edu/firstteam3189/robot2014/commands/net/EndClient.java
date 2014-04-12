@@ -7,7 +7,6 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  * @author Michael
  */
 public class EndClient extends CommandBase {
-    
     public EndClient() {
         requires(client);
     }
@@ -17,7 +16,6 @@ public class EndClient extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

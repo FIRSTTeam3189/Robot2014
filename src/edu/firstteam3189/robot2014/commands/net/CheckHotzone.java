@@ -7,7 +7,6 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  * @author Michael, Ian
  */
 public class CheckHotzone extends CommandBase {
-    
     public CheckHotzone() {
         requires(client);
         setTimeout(1);
@@ -17,7 +16,6 @@ public class CheckHotzone extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

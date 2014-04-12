@@ -8,9 +8,9 @@ import edu.firstteam3189.robot2014.commands.CommandBase;
  * @author Michael
  */
 public class WaitForHotzone extends CommandBase {
-    
+
     private boolean done = false;
-    
+
     public WaitForHotzone() {
         requires(client);
         setTimeout(Constants.AUTO_WAIT_SHOOT_TIME - Constants.FORWARD_TIME);
@@ -32,7 +32,6 @@ public class WaitForHotzone extends CommandBase {
     }
 
     protected void end() {
-        
     }
 
     protected void interrupted() {

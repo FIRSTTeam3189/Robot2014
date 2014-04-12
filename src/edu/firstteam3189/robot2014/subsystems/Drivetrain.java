@@ -10,12 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Andrew, Michael
  */
 public class Drivetrain extends Subsystem {
-    
     private Victor left;
     private Victor leftTwo;
     private Victor right;
     private Victor rightTwo;
-    
+
     /**
      * controls the drive train motors of the robot
      */
@@ -29,7 +28,7 @@ public class Drivetrain extends Subsystem {
     public void initDefaultCommand() {
         setDefaultCommand(new DriveTrainAdvancedTankDriveControl());
     }
-    
+
     /**
      * Powers on the motors
      * @param leftPwr
@@ -42,7 +41,7 @@ public class Drivetrain extends Subsystem {
         right.set(-rightPwr);
         rightTwo.set(-rightPwr);
     }
-    
+
     /**
      * Powers on the motors
      * @param leftPwr
@@ -55,14 +54,14 @@ public class Drivetrain extends Subsystem {
         right.set(leftPwr);
         rightTwo.set(leftPwr);
     }
-    
+
     /**
      * Sets motors power to 0
      */
     public void murder () {
         powerTankDriveNormal(0, 0);
     }
-    
+
     public void updateStatus(){
         SmartDashboard.putData(this);
         SmartDashboard.putNumber("Drivetrain Left Track", left.get());

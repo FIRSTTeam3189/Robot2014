@@ -2,22 +2,20 @@ package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.Constants;
 import edu.firstteam3189.robot2014.util.Logger;
-import edu.firstteam3189.robot2014.util.Sockert;
-import java.io.IOException;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import edu.wpi.first.wpilibj.networktables2.client.NetworkTableClient;
 import edu.wpi.first.wpilibj.networktables2.util.List;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * 
+ *
  * @author Michael
  */
-
 public class Client extends Subsystem {
     private static final Logger logger = new Logger(Client.class);
+    private static final String NETWORK_COMMAND = "robot";
+    private static final String NETWORK_TABLE = "data";
 
     private List clientProcesses = new List();
     private NetworkTable code;
@@ -26,12 +24,11 @@ public class Client extends Subsystem {
 
     public Client() {
         clientProcesses.add("welcome to DevBo client");
-        
     }
 
     /**
      * writes a message to the process list for humans to read.
-     * 
+     *
      * @param process
      */
     public void addProcess(String process) {
@@ -68,14 +65,13 @@ public class Client extends Subsystem {
 
     /**
      * gets the last process added to processes
-     * 
+     *
      * @return string of last process in process list
      */
     public String getLastProcess() {
-        if (clientProcesses.size() > 0) {
-            return (String) clientProcesses.get(clientProcesses.size() - 1);
-        }
-        return "no processes";
+        return (clientProcesses.size() > 0) ?
+            (String) clientProcesses.get(clientProcesses.size() - 1) :
+            "no processes";
     }
 
     public boolean isConnected() {
@@ -87,19 +83,18 @@ public class Client extends Subsystem {
     }
 
     public void outputToCodeStream(int item, String clientProcess) {
-        code.putNumber("robot", item);
+        code.putNumber(NETWORK_COMMAND, item);
     }
 
     public void outputToCodeStream(String item, String clientProcess) {
-        code.putString("robot", item);
+        code.putString(NETWORK_COMMAND, item);
     }
-
 
     /**
      * try's to connect to servers socket.
      */
     public boolean setUp() {
-        code = NetworkTable.getTable("data");
+        code = NetworkTable.getTable(NETWORK_TABLE);
         return false;
     }
 

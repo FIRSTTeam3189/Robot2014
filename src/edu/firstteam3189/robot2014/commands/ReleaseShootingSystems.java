@@ -7,12 +7,12 @@ package edu.firstteam3189.robot2014.commands;
 public class ReleaseShootingSystems extends CommandBase {
 
     public ReleaseShootingSystems() {
-        requires(wintch);
+        requires(winch);
         requires(latch);
     }
 
     protected void initialize() {
-        wintch.unlock();
+        winch.unlock();
         latch.unlatch();
     }
 

@@ -10,7 +10,7 @@ import edu.firstteam3189.robot2014.subsystems.Collector;
 import edu.firstteam3189.robot2014.subsystems.CompressorSubsystem;
 import edu.firstteam3189.robot2014.subsystems.Drivetrain;
 import edu.firstteam3189.robot2014.subsystems.Gearbox;
-import edu.firstteam3189.robot2014.subsystems.Wintch;
+import edu.firstteam3189.robot2014.subsystems.Winch;
 import edu.firstteam3189.robot2014.subsystems.IndicatorLight;
 import edu.firstteam3189.robot2014.subsystems.Latch;
 
@@ -29,7 +29,7 @@ public abstract class CommandBase extends Command {
     public static Gearbox gearbox = new Gearbox();
     public static IndicatorLight light = new IndicatorLight();
     public static Latch latch = new Latch();
-    public static Wintch wintch = new Wintch();
+    public static Winch winch = new Winch();
 
     public static void init() {
         oi = new OI();
@@ -57,6 +57,6 @@ public abstract class CommandBase extends Command {
         gearbox.updateStatus();
         light.updateStatus();
         latch.updateStatus();
-        wintch.updateStatus();
+        winch.updateStatus();
     }
 }

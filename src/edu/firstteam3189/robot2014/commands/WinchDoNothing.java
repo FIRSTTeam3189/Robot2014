@@ -2,22 +2,19 @@ package edu.firstteam3189.robot2014.commands;
 
 /**
  *
- * @author DevBo
+ * @author Michael
  */
-public class WintchControl extends CommandBase {
+public class WinchDoNothing extends CommandBase {
 
-    public WintchControl() {
-        requires(wintch);
-        requires(collector);
+    public WinchDoNothing() {
+        requires(winch);
     }
 
     protected void initialize() {
-        wintch.lock();
-        collector.murder();
+        winch.murder();
     }
 
     protected void execute() {
-        wintch.giveSpeed(oi.getShooterY());
     }
 
     protected boolean isFinished() {
@@ -25,10 +22,8 @@ public class WintchControl extends CommandBase {
     }
 
     protected void end() {
-        wintch.murder();
     }
 
     protected void interrupted() {
-        wintch.murder();
     }
 }

@@ -7,42 +7,42 @@ import edu.firstteam3189.robot2014.util.Counter;
  *
  * @author DevBo
  */
-public class WintchDown extends CommandBase {
+public class WinchDown extends CommandBase {
 
     private Counter counter;
 
-    public WintchDown() {
+    public WinchDown() {
         counter = new Counter();
-        requires(wintch);
+        requires(winch);
         requires(latch);
     }
 
     protected void initialize() {
-        wintch.giveSpeed(Constants.WINTCH_DOWN_SPEED);
+        winch.giveSpeed(Constants.WINCH_DOWN_SPEED);
         latch.unlatch();
-        wintch.lock();
+        winch.lock();
     }
 
     protected void execute() {
         if (latch.isLatched() && counter.isTimedOut()) {
-            wintch.murder();
-            wintch.unlock();
-        } else if (!latch.isLatched() && wintch.isLimit()) {
+            winch.murder();
+            winch.unlock();
+        } else if (!latch.isLatched() && winch.isLimit()) {
             latch.latch();
-            wintch.giveSpeed(Constants.WINTCH_UP_SPEED);
-            counter.setCounter(Constants.WINTCH_UP_TIME);
+            winch.giveSpeed(Constants.WINCH_UP_SPEED);
+            counter.setCounter(Constants.WINCH_UP_TIME);
         }
     }
 
     protected boolean isFinished() {
-        return !wintch.isLocked();
+        return !winch.isLocked();
     }
 
     protected void end() {
-        wintch.murder();
+        winch.murder();
     }
 
     protected void interrupted() {
-        wintch.murder();
+        winch.murder();
     }
 }

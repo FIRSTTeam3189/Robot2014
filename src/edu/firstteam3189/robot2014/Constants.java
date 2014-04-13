@@ -22,9 +22,9 @@ public class Constants {
     public static double FORWARD_START_PWR = -0.4;
     public static double FORWARD_TRANSITION = 3;
     public static double AUTO_WAIT_SHOOT_TIME = 6.5;
-    public static double WINTCH_DOWN_SPEED = 0.5;
-    public static double WINTCH_UP_SPEED = -0.25;
-    public static double WINTCH_UP_TIME = 0.25;
+    public static double WINCH_DOWN_SPEED = 0.5;
+    public static double WINCH_UP_SPEED = -0.25;
+    public static double WINCH_UP_TIME = 0.25;
     public static double DISTANCE_FROM_WALL = 60;
     public static double DISTANCE_FROM_WALL_TOLERANCE = 5;
     public static double COLLECTOR_POWER_LIMIT_DOWN = 0.5;
@@ -36,9 +36,9 @@ public class Constants {
         SmartDashboard.putNumber("Auto Forward Power", FORWARD_PWR);
         SmartDashboard.putNumber("Auto Forward Start Power", FORWARD_START_PWR);
         SmartDashboard.putNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
-        SmartDashboard.putNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
-        SmartDashboard.putNumber("Wintch up Speed", WINTCH_UP_SPEED);
-        SmartDashboard.putNumber("Wintch Up Time", WINTCH_UP_TIME);
+        SmartDashboard.putNumber("Winch Down Speed", WINCH_DOWN_SPEED);
+        SmartDashboard.putNumber("Winch up Speed", WINCH_UP_SPEED);
+        SmartDashboard.putNumber("Winch Up Time", WINCH_UP_TIME);
         SmartDashboard.putNumber("Indecator Distance", DISTANCE_FROM_WALL);
         SmartDashboard.putNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
         SmartDashboard.putNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);
@@ -50,9 +50,9 @@ public class Constants {
         FORWARD_PWR = SmartDashboard.getNumber("Auto Forward Power", FORWARD_PWR);
         FORWARD_START_PWR = SmartDashboard.getNumber("Auto Forward Start Power", FORWARD_START_PWR);
         AUTO_WAIT_SHOOT_TIME = SmartDashboard.getNumber("Auto Shot Wait Time", AUTO_WAIT_SHOOT_TIME);
-        WINTCH_DOWN_SPEED = SmartDashboard.getNumber("Wintch Down Speed", WINTCH_DOWN_SPEED);
-        WINTCH_UP_SPEED = SmartDashboard.getNumber("Wintch up Speed", WINTCH_UP_SPEED);
-        WINTCH_UP_TIME = SmartDashboard.getNumber("Wintch Up Time", WINTCH_UP_TIME);
+        WINCH_DOWN_SPEED = SmartDashboard.getNumber("Winch Down Speed", WINCH_DOWN_SPEED);
+        WINCH_UP_SPEED = SmartDashboard.getNumber("Winch up Speed", WINCH_UP_SPEED);
+        WINCH_UP_TIME = SmartDashboard.getNumber("Winch Up Time", WINCH_UP_TIME);
         DISTANCE_FROM_WALL = SmartDashboard.getNumber("Indecator Distance", DISTANCE_FROM_WALL);
         DISTANCE_FROM_WALL_TOLERANCE = SmartDashboard.getNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
         COLLECTOR_POWER_LIMIT_DOWN = SmartDashboard.getNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);

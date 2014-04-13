@@ -1,7 +1,7 @@
 package edu.firstteam3189.robot2014.subsystems;
 
 import edu.firstteam3189.robot2014.RobotMap;
-import edu.firstteam3189.robot2014.commands.WintchDoNothing;
+import edu.firstteam3189.robot2014.commands.WinchDoNothing;
 import edu.firstteam3189.robot2014.util.Piston;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
@@ -12,25 +12,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  * @author Andrew, Michael
  */
-public class Wintch extends Subsystem {
+public class Winch extends Subsystem {
 
     private Victor rightMotor;
     private Victor leftMotor;
     private DigitalInput limitSwitch;
-    private Piston wintch;
+    private Piston winch;
 
     /**
-     * the wintch of the shooter device
+     * the winch of the shooter device
      */
-    public Wintch() {
+    public Winch() {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
         limitSwitch = new DigitalInput(RobotMap.shooterLimitSwitch);
-        wintch = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
+        winch = new Piston(RobotMap.shooterExtended, RobotMap.shooterRetracted);
     }
 
     /**
-     * sets the speed the wintchs motor
+     * sets the speed the winches motor
      *
      * @param pwr
      */
@@ -55,7 +55,7 @@ public class Wintch extends Subsystem {
     }
 
     /**
-     * stops the wintch
+     * stops the winch
      */
     public void murder() {
         rightMotor.set(0);
@@ -72,31 +72,31 @@ public class Wintch extends Subsystem {
     }
 
     /**
-     * puts the wintch into gear so it can control it
+     * puts the winch into gear so it can control it
      */
     public void lock() {
-        wintch.extend();
+        winch.extend();
     }
 
     /**
-     * takes the wintch out of gear so it moves freely
+     * takes the winch out of gear so it moves freely
      */
     public void unlock() {
-        wintch.retract();
+        winch.retract();
     }
 
     public boolean isLocked() {
-        return wintch.isExtended();
+        return winch.isExtended();
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new WintchDoNothing());
+        setDefaultCommand(new WinchDoNothing());
     }
 
     public void updateStatus() {
         SmartDashboard.putData(this);
-        SmartDashboard.putNumber("Wintch Speed", rightMotor.get());
-        SmartDashboard.putBoolean("Wintch Limit Switch Tripped", limitSwitch.get());
-        SmartDashboard.putBoolean("Wintch In Gear", wintch.isExtended());
+        SmartDashboard.putNumber("Winch Speed", rightMotor.get());
+        SmartDashboard.putBoolean("Winch Limit Switch Tripped", limitSwitch.get());
+        SmartDashboard.putBoolean("Winch In Gear", winch.isExtended());
     }
 }

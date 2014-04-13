@@ -5,7 +5,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author Ian
  */
 public class CompressorStart extends CommandBase {
-    
+
     public CompressorStart() {
         requires(compressor);
     }
@@ -15,7 +15,6 @@ public class CompressorStart extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

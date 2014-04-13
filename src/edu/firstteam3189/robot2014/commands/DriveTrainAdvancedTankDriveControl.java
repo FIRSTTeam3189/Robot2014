@@ -1,14 +1,14 @@
 package edu.firstteam3189.robot2014.commands;
 
 /**
- * 
+ *
  * @author Michael
  */
 public class DriveTrainAdvancedTankDriveControl extends CommandBase {
-    
+
     private boolean toggle;
     private boolean buttonPressed;
-    
+
     public DriveTrainAdvancedTankDriveControl() {
         requires(drivetrain);
     }
@@ -20,8 +20,7 @@ public class DriveTrainAdvancedTankDriveControl extends CommandBase {
         if (oi.getToggleButton() && !buttonPressed) {
             buttonPressed = true;
             toggle = !toggle;
-        }
-        else if (buttonPressed && !oi.getToggleButton()) {
+        } else if (buttonPressed && !oi.getToggleButton()) {
             buttonPressed = false;
         }
         if (!toggle) {

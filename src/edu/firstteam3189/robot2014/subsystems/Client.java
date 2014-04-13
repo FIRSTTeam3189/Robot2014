@@ -13,10 +13,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Michael
  */
 public class Client extends Subsystem {
+
     private static final Logger logger = new Logger(Client.class);
     private static final String NETWORK_COMMAND = "robot";
     private static final String NETWORK_TABLE = "data";
-
     private List clientProcesses = new List();
     private NetworkTable code;
     private int codeRecieved;
@@ -69,9 +69,9 @@ public class Client extends Subsystem {
      * @return string of last process in process list
      */
     public String getLastProcess() {
-        return (clientProcesses.size() > 0) ?
-            (String) clientProcesses.get(clientProcesses.size() - 1) :
-            "no processes";
+        return (clientProcesses.size() > 0)
+                ? (String) clientProcesses.get(clientProcesses.size() - 1)
+                : "no processes";
     }
 
     public boolean isConnected() {
@@ -108,7 +108,7 @@ public class Client extends Subsystem {
         SmartDashboard.putString("Client Last Action: ", getLastProcess());
     }
 
-    public boolean isInHotzone () {
+    public boolean isInHotzone() {
         return codeRecieved >= Constants.CLIENT_IS_HZ;
     }
 

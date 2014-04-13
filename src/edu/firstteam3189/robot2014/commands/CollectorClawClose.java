@@ -5,7 +5,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author jameswomack
  */
 public class CollectorClawClose extends CommandBase {
-    
+
     public CollectorClawClose() {
         requires(collerctorGrabber);
     }
@@ -15,7 +15,6 @@ public class CollectorClawClose extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

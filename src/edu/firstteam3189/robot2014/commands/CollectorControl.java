@@ -7,7 +7,7 @@ import edu.firstteam3189.robot2014.Constants;
  * @author jameswomack
  */
 public class CollectorControl extends CommandBase {
-    
+
     public CollectorControl() {
         requires(collector);
     }
@@ -18,7 +18,7 @@ public class CollectorControl extends CommandBase {
     protected void execute() {
         if (oi.getShooterY() > 0) {
             collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT_DOWN));
-        }else{
+        } else {
             collector.setPower(oi.getShooterY() * (Constants.COLLECTOR_POWER_LIMIT_UP));
         }
     }

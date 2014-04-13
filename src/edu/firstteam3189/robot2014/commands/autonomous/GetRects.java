@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author DevBo
  */
 public class GetRects extends CommandGroup {
+
     public GetRects() {
         addSequential(new StartClient());
         addSequential(new SendHotzoneCheck());

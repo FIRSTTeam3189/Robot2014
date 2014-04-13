@@ -11,37 +11,38 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Ian
  */
 public class Gearbox extends Subsystem {
+
     private Piston piston;
 
     /**
      * controls Gearbox of the drive train
      */
-    public Gearbox () {
+    public Gearbox() {
         piston = new Piston(RobotMap.lowGear, RobotMap.highGear, false);
     }
 
     /**
      * shifts the gearbox into high gear
      */
-    public void shiftHighGear () {
+    public void shiftHighGear() {
         piston.retract();
     }
 
     /**
      * shifts the gearbox into low gear
      */
-    public void shiftLowGear () {
+    public void shiftLowGear() {
         piston.extend();
     }
 
     /**
      * shifts the gearbox
      */
-    public void shiftGear () {
+    public void shiftGear() {
         piston.toggle();
     }
 
-    public String getGear(){
+    public String getGear() {
         return (piston.isRetracted()) ? "Low Gear" : "High Gear";
     }
 
@@ -49,7 +50,7 @@ public class Gearbox extends Subsystem {
         setDefaultCommand(new GearBoxNothing());
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putString("Drivetrain Gear", getGear());
     }

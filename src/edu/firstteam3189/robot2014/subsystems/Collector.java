@@ -11,13 +11,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author devBo
  */
 public class Collector extends Subsystem {
+
     private Victor left;
     private Victor right;
 
     /**
      * the subsystem controlling the collector arm
      */
-    public Collector () {
+    public Collector() {
         left = new Victor(RobotMap.collectorLeft);
         right = new Victor(RobotMap.collectorRight);
     }
@@ -28,9 +29,10 @@ public class Collector extends Subsystem {
 
     /**
      * sets the power of the collector arms motors
+     *
      * @param pwr
      */
-    public void setPower (double pwr) {
+    public void setPower(double pwr) {
         left.set(-pwr);
         right.set(pwr);
     }
@@ -38,12 +40,12 @@ public class Collector extends Subsystem {
     /**
      * sets the power of the motors to 0 and -0
      */
-    public void murder () {
+    public void murder() {
         left.set(0);
         right.set(-0);
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putNumber("Collector Speed", right.get());
     }

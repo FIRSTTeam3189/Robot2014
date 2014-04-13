@@ -11,41 +11,43 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Driver
  */
 public class Latch extends Subsystem {
+
     private Piston latch;
 
     /**
      * controls the latch for the shooter
      */
-    public Latch () {
+    public Latch() {
         latch = new Piston(RobotMap.latchExtended, RobotMap.latchRetracted, false);
     }
 
     /**
      * makes the latch latch
      */
-    public void latch () {
+    public void latch() {
         latch.extend();
     }
 
     /**
      * makes the latch unlatch
      */
-    public void unlatch () {
+    public void unlatch() {
         latch.retract();
     }
 
     /**
      * toggles the latch state
      */
-    public void toggle () {
+    public void toggle() {
         latch.toggle();
     }
 
     /**
      * returns if the latch is latched
+     *
      * @return
      */
-    public boolean isLatched(){
+    public boolean isLatched() {
         return latch.isExtended();
     }
 
@@ -53,7 +55,7 @@ public class Latch extends Subsystem {
         setDefaultCommand(new LatchDoNothing());
     }
 
-    public void updateStatus () {
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putBoolean("Latch Latched", latch.isExtended());
     }

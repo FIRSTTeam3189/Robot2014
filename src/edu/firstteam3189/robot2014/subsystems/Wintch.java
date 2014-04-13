@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Andrew, Michael
  */
 public class Wintch extends Subsystem {
+
     private Victor rightMotor;
     private Victor leftMotor;
     private DigitalInput limitSwitch;
@@ -21,7 +22,7 @@ public class Wintch extends Subsystem {
     /**
      * the wintch of the shooter device
      */
-    public Wintch () {
+    public Wintch() {
         rightMotor = new Victor(RobotMap.rightShooterMotor);
         leftMotor = new Victor(RobotMap.leftShooterMotor);
         limitSwitch = new DigitalInput(RobotMap.shooterLimitSwitch);
@@ -30,25 +31,25 @@ public class Wintch extends Subsystem {
 
     /**
      * sets the speed the wintchs motor
+     *
      * @param pwr
      */
-    public void setSpeed (double pwr){
+    public void setSpeed(double pwr) {
         rightMotor.set(pwr);
         leftMotor.set(pwr);
     }
 
     /**
      * gives a desired power of the motors and checks if is can
+     *
      * @param pwr
      */
-    public void giveSpeed (double pwr) {
+    public void giveSpeed(double pwr) {
         if (!limitSwitch.get()) {
             setSpeed(pwr);
-        }
-        else if(pwr < 0) {
+        } else if (pwr < 0) {
             setSpeed(pwr);
-        }
-        else {
+        } else {
             setSpeed(0);
         }
     }
@@ -56,30 +57,31 @@ public class Wintch extends Subsystem {
     /**
      * stops the wintch
      */
-    public void murder () {
+    public void murder() {
         rightMotor.set(0);
         leftMotor.set(0);
     }
 
     /**
      * returns if the limit switch is being tripped
+     *
      * @return
      */
-    public boolean isLimit () {
+    public boolean isLimit() {
         return limitSwitch.get();
     }
 
     /**
      * puts the wintch into gear so it can control it
      */
-    public void lock(){
+    public void lock() {
         wintch.extend();
     }
 
     /**
      * takes the wintch out of gear so it moves freely
      */
-    public void unlock(){
+    public void unlock() {
         wintch.retract();
     }
 

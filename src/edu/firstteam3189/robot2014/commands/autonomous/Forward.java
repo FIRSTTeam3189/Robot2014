@@ -9,6 +9,7 @@ import edu.firstteam3189.robot2014.util.Counter;
  * @author Michael, Ky
  */
 public class Forward extends CommandBase {
+
     private Counter counter = new Counter();
     private double time;
 
@@ -24,7 +25,7 @@ public class Forward extends CommandBase {
     }
 
     protected void execute() {
-        if(counter.isTimedOut()){
+        if (counter.isTimedOut()) {
             drivetrain.powerTankDriveNormal(Constants.FORWARD_PWR, Constants.FORWARD_PWR);
             counter.setCounter(10);
         }

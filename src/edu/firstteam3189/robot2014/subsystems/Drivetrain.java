@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Andrew, Michael
  */
 public class Drivetrain extends Subsystem {
+
     private Victor left;
     private Victor leftTwo;
     private Victor right;
@@ -18,7 +19,7 @@ public class Drivetrain extends Subsystem {
     /**
      * controls the drive train motors of the robot
      */
-    public Drivetrain () {
+    public Drivetrain() {
         left = new Victor(RobotMap.leftMotors);
         leftTwo = new Victor(RobotMap.leftTwoMotors);
         right = new Victor(RobotMap.rightMotors);
@@ -31,10 +32,11 @@ public class Drivetrain extends Subsystem {
 
     /**
      * Powers on the motors
+     *
      * @param leftPwr
-     * @param rightPwr 
+     * @param rightPwr
      */
-    public void powerTankDriveNormal (double leftPwr, double rightPwr) {
+    public void powerTankDriveNormal(double leftPwr, double rightPwr) {
         left.set(leftPwr);
         leftTwo.set(leftPwr);
         // Negated because motor is flipped (Switching wires is BAD [illegal])
@@ -44,10 +46,11 @@ public class Drivetrain extends Subsystem {
 
     /**
      * Powers on the motors
+     *
      * @param leftPwr
-     * @param rightPwr 
+     * @param rightPwr
      */
-    public void powerTankDriveReverse (double leftPwr, double rightPwr) {
+    public void powerTankDriveReverse(double leftPwr, double rightPwr) {
         left.set(-rightPwr);
         leftTwo.set(-rightPwr);
         // Negated because motor is flipped (Switching wires is BAD [illegal])
@@ -58,11 +61,11 @@ public class Drivetrain extends Subsystem {
     /**
      * Sets motors power to 0
      */
-    public void murder () {
+    public void murder() {
         powerTankDriveNormal(0, 0);
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putNumber("Drivetrain Left Track", left.get());
         SmartDashboard.putNumber("Drivetrain Right Track", right.get());

@@ -9,7 +9,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author Michael
  */
 public class DriveTrainDoNothing extends CommandBase {
-    
+
     public DriveTrainDoNothing() {
         requires(drivetrain);
     }
@@ -19,7 +19,6 @@ public class DriveTrainDoNothing extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {

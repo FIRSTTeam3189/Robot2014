@@ -9,29 +9,28 @@ package edu.firstteam3189.robot2014.util;
  * @author DevBo
  */
 public class Counter {
-    
+
     public static final int ONE_SECOND_IN_MILLISECONDS = 1000;
-    
     private long endTime;
 
     public Counter() {
-        
     }
-    
+
     /**
      * sets the counters end time to given number in seconds in the future.
-     * @param waitTimeInSeconds 
+     *
+     * @param waitTimeInSeconds
      */
-    public void setCounter(double waitTimeInSeconds){
+    public void setCounter(double waitTimeInSeconds) {
         endTime = System.currentTimeMillis() + (long) (waitTimeInSeconds * ONE_SECOND_IN_MILLISECONDS);
     }
-    
+
     /**
      * is timed out
-     * @return 
+     *
+     * @return
      */
-    public boolean isTimedOut(){
+    public boolean isTimedOut() {
         return endTime <= System.currentTimeMillis();
     }
-    
 }

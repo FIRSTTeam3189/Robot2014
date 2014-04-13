@@ -1,6 +1,5 @@
 package edu.firstteam3189.robot2014;
 
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -10,10 +9,9 @@ import edu.firstteam3189.robot2014.commands.autonomous.Autonomous;
 import edu.firstteam3189.robot2014.commands.net.EndClient;
 
 /**
- * 
+ *
  * @author Michael
  */
-
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
@@ -50,11 +48,9 @@ public class Robot extends IterativeRobot {
         (new EndClient()).start();
         super.disabledInit(); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public void disabledPeriodic() {
         CommandBase.updateStatus();
         super.disabledPeriodic();
     }
-    
-    
 }

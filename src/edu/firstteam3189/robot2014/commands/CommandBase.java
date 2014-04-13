@@ -15,10 +15,9 @@ import edu.firstteam3189.robot2014.subsystems.IndicatorLight;
 import edu.firstteam3189.robot2014.subsystems.Latch;
 
 /**
- * 
+ *
  * @author Michael, Andrew, Ky
  */
-
 public abstract class CommandBase extends Command {
 
     public static OI oi;
@@ -31,7 +30,6 @@ public abstract class CommandBase extends Command {
     public static IndicatorLight light = new IndicatorLight();
     public static Latch latch = new Latch();
     public static Wintch wintch = new Wintch();
-    
 
     public static void init() {
         oi = new OI();
@@ -46,11 +44,11 @@ public abstract class CommandBase extends Command {
     public CommandBase() {
         super();
     }
-    
-    public static void updateStatus () {        
+
+    public static void updateStatus() {
         Constants.updateStatus();
         oi.updateStatus();
-        
+
         client.updateStatus();
         collector.updateStatus();
         collerctorGrabber.updateStatus();

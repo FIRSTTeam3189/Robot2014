@@ -5,7 +5,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author Michael
  */
 public class GearBoxLowGear extends CommandBase {
-    
+
     public GearBoxLowGear() {
         requires(gearbox);
     }

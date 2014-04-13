@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author jameswomack
  */
 public class CollectorGrabber extends Subsystem {
+
     private Piston claw;
 
     /**
@@ -27,25 +28,25 @@ public class CollectorGrabber extends Subsystem {
     /**
      * opens the collector arms
      */
-    public void openCollector () {
+    public void openCollector() {
         claw.extend();
     }
 
     /**
      * closes the collector arms
      */
-    public void closeCollector () {
+    public void closeCollector() {
         claw.retract();
     }
 
     /**
      * toggles the collector arms state
      */
-    public void toggleCollector () {
+    public void toggleCollector() {
         claw.toggle();
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putBoolean("Collector Open", claw.isExtended());
     }

@@ -5,7 +5,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author DevBo
  */
 public class WintchControl extends CommandBase {
-    
+
     public WintchControl() {
         requires(wintch);
         requires(collector);

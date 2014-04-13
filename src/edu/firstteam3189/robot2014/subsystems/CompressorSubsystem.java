@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Michael, Ian
  */
 public class CompressorSubsystem extends Subsystem {
+
     private Compressor compressor;
 
     /**
@@ -27,14 +28,14 @@ public class CompressorSubsystem extends Subsystem {
     /**
      * starts compressing
      */
-    public void start () {
+    public void start() {
         compressor.start();
     }
 
     /**
      * stops compressing
      */
-    public void stop () {
+    public void stop() {
         compressor.stop();
     }
 
@@ -42,7 +43,7 @@ public class CompressorSubsystem extends Subsystem {
         setDefaultCommand(new CompressorStart());
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putData(this);
         SmartDashboard.putBoolean("Compressor Running", compressor.enabled());
     }

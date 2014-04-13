@@ -9,7 +9,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author Michael
  */
 public class GearBoxHighGear extends CommandBase {
-    
+
     public GearBoxHighGear() {
         requires(gearbox);
     }
@@ -19,7 +19,6 @@ public class GearBoxHighGear extends CommandBase {
     }
 
     protected void execute() {
-        
     }
 
     protected boolean isFinished() {
@@ -27,10 +26,8 @@ public class GearBoxHighGear extends CommandBase {
     }
 
     protected void end() {
-        
     }
 
     protected void interrupted() {
-        
     }
 }

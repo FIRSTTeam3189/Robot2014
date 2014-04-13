@@ -18,20 +18,19 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
+ * This class is the glue that binds the controls on the physical operator interface to the commands
+ * and command groups that allow control of the robot.
+ *
  * @author Michael but more Ky
  */
 public class OI {
-    
+
     private Joystick leftJoystick = new Joystick(ControlMap.leftJoystick);
     private Joystick rightJoystick = new Joystick(ControlMap.rightJoystick);
     private Joystick controller = new Joystick(ControlMap.controller);
-    
     private Button rightButton1 = new JoystickButton(rightJoystick, 1);
     private Button rightButton2 = new JoystickButton(rightJoystick, 2);
     private Button rightButton3 = new JoystickButton(rightJoystick, 3);
-    
     private Button controllerButton1 = new JoystickButton(controller, 1);
     private Button controllerButton2 = new JoystickButton(controller, 2);
     private Button controllerButton3 = new JoystickButton(controller, 3);
@@ -41,13 +40,12 @@ public class OI {
     private Button controllerButton7 = new JoystickButton(controller, 7);
     private Button controllerButton11 = new JoystickButton(controller, 11);
     private Button controllerButton10 = new JoystickButton(controller, 10);
-    
-    
-    public OI () {
+
+    public OI() {
         rightButton1.whenPressed(new GearBoxShiftGear());
         rightButton2.whenPressed(new GearBoxHighGear());
         rightButton3.whenPressed(new GearBoxLowGear());
-        
+
         controllerButton1.whenPressed(new ReleaseShootingSystems());
         controllerButton2.whenPressed(new CollectorClawOpen());
         controllerButton3.whenPressed(new CollectorClawClose());
@@ -58,28 +56,28 @@ public class OI {
         controllerButton10.whenPressed(new LatchLatch());
         controllerButton11.whenPressed(new GetRects());
     }
-    
-    public double getLeftY () {
+
+    public double getLeftY() {
         return leftJoystick.getY();
     }
-    
-    public double getRightY () {
+
+    public double getRightY() {
         return rightJoystick.getY();
     }
-    
-    public double getShooterY(){
+
+    public double getShooterY() {
         return controller.getY();
     }
-    
-    public double getShooterThrottle(){
-        return (controller.getThrottle() + 1.0)/2.0;
+
+    public double getShooterThrottle() {
+        return (controller.getThrottle() + 1.0) / 2.0;
     }
-    
-    public boolean getToggleButton () {
+
+    public boolean getToggleButton() {
         return leftJoystick.getRawButton(1);
     }
 
-    public void updateStatus(){
+    public void updateStatus() {
         SmartDashboard.putNumber("OI Shooter Y", getShooterY());
         SmartDashboard.putNumber("OI Left Y", getLeftY());
         SmartDashboard.putNumber("OI Right Y", getRightY());

@@ -14,173 +14,164 @@ import java.io.OutputStream;
 import edu.wpi.first.wpilibj.networktables2.stream.SocketConnectionStream;
 
 /**
- * 
+ *
  * @author Michael
  */
 public class Sockert {
-	int codeError = 0;
 
-	DataInputStream codeIn;
-	InputStream codeInput;
+    int codeError = 0;
+    DataInputStream codeIn;
+    InputStream codeInput;
+    DataOutputStream codeOut;
+    OutputStream codeOutput;
+    int codeReceived = 0;
+    SocketConnectionStream codeSocketConnection;
+    String imageReceived;
+    String ip;
+    int port;
 
-	DataOutputStream codeOut;
-	OutputStream codeOutput;
+    public Sockert() {
+        codeReceived = 0;
+    }
 
-	int codeReceived = 0;
-	SocketConnectionStream codeSocketConnection;
-	String imageReceived;
+    public Sockert(String ip, int port) {
+        this();
+        this.ip = ip;
+        this.port = port;
+    }
 
-	String ip;
-	int port;
+    /**
+     * try's to read input from server.
+     */
+    public boolean checkInputSteam() throws IOException {
+        if (isConnected()) {
+            if (codeIn.available() > 0) {
+                codeReceived = codeIn.readInt();
+                return true;
+            } else {
+                codeError = 1;
+            }
 
-	public Sockert() {
-		codeReceived = 0;
-	}
+        } else {
+            codeError = 2;
+            throw new IOException("not connected to socket");
+        }
+        return false;
+    }
 
-	public Sockert(String ip, int port) {
-		this();
-		this.ip = ip;
-		this.port = port;
-	}
+    public void closeSocket() {
+        codeOut = null;
+        codeIn = null;
+        codeOutput = null;
+        codeInput = null;
+        codeSocketConnection.close();
+        codeSocketConnection = null;
+    }
 
-	/**
-	 * try's to read input from server.
-	 */
-	public boolean checkInputSteam() throws IOException {
-		if (isConnected()) {
-			if (codeIn.available() > 0) {
-				codeReceived = codeIn.readInt();
-				return true;
-			} else {
-				codeError = 1;
-			}
+    public void connectSocket() throws IOException {
+        codeSocketConnection = new SocketConnectionStream(ip, port);
+        codeInput = codeSocketConnection.getInputStream();
+        codeOutput = codeSocketConnection.getOutputStream();
+        codeIn = new DataInputStream(codeInput);
+        codeOut = new DataOutputStream(codeOutput);
+    }
 
-		} else {
-			codeError = 2;
-			throw new IOException("not connected to socket");
-		}
-		return false;
-	}
+    public void connectSocket(String ip, int port) throws IOException {
+        codeSocketConnection = new SocketConnectionStream(ip, port);
+        codeInput = codeSocketConnection.getInputStream();
+        codeOutput = codeSocketConnection.getOutputStream();
+        codeIn = new DataInputStream(codeInput);
+        codeOut = new DataOutputStream(codeOutput);
+    }
 
-	public void closeSocket() {
-		codeOut = null;
-		codeIn = null;
-		codeOutput = null;
-		codeInput = null;
-		codeSocketConnection.close();
-		codeSocketConnection = null;
-	}
+    /**
+     * 0 = no error. 42 = camera didnt init. 14 = processing failed.
+     *
+     * @return code
+     */
+    public int getError() {
+        return codeError;
+    }
 
-	public void connectSocket() throws IOException {
-		codeSocketConnection = new SocketConnectionStream(ip, port);
-		codeInput = codeSocketConnection.getInputStream();
-		codeOutput = codeSocketConnection.getOutputStream();
-		codeIn = new DataInputStream(codeInput);
-		codeOut = new DataOutputStream(codeOutput);
-	}
+    /**
+     * gets data the client last received from server.
+     *
+     * @return
+     */
+    public int getReceived() {
+        return codeReceived;
+    }
 
-	public void connectSocket(String ip, int port) throws IOException {
-		codeSocketConnection = new SocketConnectionStream(ip, port);
-		codeInput = codeSocketConnection.getInputStream();
-		codeOutput = codeSocketConnection.getOutputStream();
-		codeIn = new DataInputStream(codeInput);
-		codeOut = new DataOutputStream(codeOutput);
-	}
+    /**
+     * gets input from server
+     *
+     * @return received data.
+     */
+    public int getStream() throws IOException {
+        checkInputSteam();
+        return codeReceived;
+    }
 
-	/**
-	 * 0 = no error. 42 = camera didnt init. 14 = processing failed.
-	 * 
-	 * @return code
-	 */
-	public int getError() {
-		return codeError;
-	}
+    /**
+     * checks if the socket is connected
+     *
+     * @return
+     */
+    public boolean isConnected() {
+        return codeSocketConnection != null;
+    }
 
-	/**
-	 * gets data the client last received from server.
-	 * 
-	 * @return
-	 */
-	public int getReceived() {
-		return codeReceived;
-	}
+    public void nullReceived() {
+        codeReceived = 0;
+    }
 
-	/**
-	 * gets input from server
-	 * 
-	 * @return received data.
-	 */
-	public int getStream() throws IOException {
-		checkInputSteam();
-		return codeReceived;
-	}
+    /**
+     * outputs provided byte[] to server
+     *
+     * @param item sent to server
+     * @throws client process to be added to last action list
+     */
+    public void outputToStream(byte[] item) throws IOException {
+        if (isConnected()) {
+            codeOut.write(item);
+        } else {
+            throw new IOException("not connected to socket");
+        }
+    }
 
-	/**
-	 * checks if the socket is connected
-	 * 
-	 * @return
-	 */
-	public boolean isConnected() {
-		return codeSocketConnection != null;
-	}
+    public void outputToStream(byte[] item, int sendSize) throws IOException {
+        if (isConnected()) {
+            codeOut.write(item, 0, sendSize);
+        } else {
+            throw new IOException("not connected to socket");
+        }
+    }
 
-	public void nullReceived() {
-		codeReceived = 0;
-	}
+    /**
+     * outputs provided int to server.
+     *
+     * @param code sent to server.
+     * @throws client process to be added to last action list
+     */
+    public void outputToStream(int code) throws IOException {
+        if (isConnected()) {
+            codeOut.writeInt(code);
+        } else {
+            throw new IOException("not connected to socket");
+        }
+    }
 
-	/**
-	 * outputs provided byte[] to server
-	 * 
-	 * @param item
-	 *            sent to server
-	 * @throws client
-	 *             process to be added to last action list
-	 */
-	public void outputToStream(byte[] item) throws IOException {
-		if (isConnected()) {
-			codeOut.write(item);
-		} else {
-			throw new IOException("not connected to socket");
-		}
-	}
-
-	public void outputToStream(byte[] item, int sendSize) throws IOException {
-		if (isConnected()) {
-			codeOut.write(item, 0, sendSize);
-		} else {
-			throw new IOException("not connected to socket");
-		}
-	}
-
-	/**
-	 * outputs provided int to server.
-	 * 
-	 * @param code
-	 *            sent to server.
-	 * @throws client
-	 *             process to be added to last action list
-	 */
-	public void outputToStream(int code) throws IOException {
-		if (isConnected()) {
-			codeOut.writeInt(code);
-		} else {
-			throw new IOException("not connected to socket");
-		}
-	}
-
-	/**
-	 * outputs provided String to server
-	 * 
-	 * @param item
-	 *            sent to server
-	 * @throws client
-	 *             process to be added to last action list
-	 */
-	public void outputToStream(String item) throws IOException {
-		if (isConnected()) {
-			codeOut.writeUTF(item);
-		} else {
-			throw new IOException("not connected to socket");
-		}
-	}
+    /**
+     * outputs provided String to server
+     *
+     * @param item sent to server
+     * @throws client process to be added to last action list
+     */
+    public void outputToStream(String item) throws IOException {
+        if (isConnected()) {
+            codeOut.writeUTF(item);
+        } else {
+            throw new IOException("not connected to socket");
+        }
+    }
 }

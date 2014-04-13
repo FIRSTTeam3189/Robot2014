@@ -9,7 +9,7 @@ package edu.firstteam3189.robot2014.commands;
  * @author DevBo
  */
 public class LatchDoNothing extends CommandBase {
-    
+
     public LatchDoNothing() {
         requires(latch);
     }

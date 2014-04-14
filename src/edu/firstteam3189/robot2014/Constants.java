@@ -39,8 +39,8 @@ public class Constants {
         SmartDashboard.putNumber("Winch Down Speed", WINCH_DOWN_SPEED);
         SmartDashboard.putNumber("Winch up Speed", WINCH_UP_SPEED);
         SmartDashboard.putNumber("Winch Up Time", WINCH_UP_TIME);
-        SmartDashboard.putNumber("Indecator Distance", DISTANCE_FROM_WALL);
-        SmartDashboard.putNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
+        SmartDashboard.putNumber("Indicator Distance", DISTANCE_FROM_WALL);
+        SmartDashboard.putNumber("Indicator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
         SmartDashboard.putNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);
     }
 
@@ -53,8 +53,8 @@ public class Constants {
         WINCH_DOWN_SPEED = SmartDashboard.getNumber("Winch Down Speed", WINCH_DOWN_SPEED);
         WINCH_UP_SPEED = SmartDashboard.getNumber("Winch up Speed", WINCH_UP_SPEED);
         WINCH_UP_TIME = SmartDashboard.getNumber("Winch Up Time", WINCH_UP_TIME);
-        DISTANCE_FROM_WALL = SmartDashboard.getNumber("Indecator Distance", DISTANCE_FROM_WALL);
-        DISTANCE_FROM_WALL_TOLERANCE = SmartDashboard.getNumber("Indecator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
+        DISTANCE_FROM_WALL = SmartDashboard.getNumber("Indicator Distance", DISTANCE_FROM_WALL);
+        DISTANCE_FROM_WALL_TOLERANCE = SmartDashboard.getNumber("Indicator Distance Tolerance", DISTANCE_FROM_WALL_TOLERANCE);
         COLLECTOR_POWER_LIMIT_DOWN = SmartDashboard.getNumber("Collector Pwr Limit", COLLECTOR_POWER_LIMIT_DOWN);
     }
 }

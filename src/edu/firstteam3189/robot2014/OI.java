@@ -10,7 +10,6 @@ import edu.firstteam3189.robot2014.commands.LatchLatch;
 import edu.firstteam3189.robot2014.commands.ReleaseShootingSystems;
 import edu.firstteam3189.robot2014.commands.WinchControl;
 import edu.firstteam3189.robot2014.commands.WinchDown;
-import edu.firstteam3189.robot2014.commands.autonomous.Forward;
 import edu.firstteam3189.robot2014.commands.autonomous.GetRects;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;

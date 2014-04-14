@@ -8,25 +8,9 @@ package edu.firstteam3189.robot2014.commands;
  *
  * @author DevBo
  */
-public class LatchDoNothing extends CommandBase {
+public class LatchDoNothing extends DoNothingBase {
 
     public LatchDoNothing() {
-        requires(latch);
-    }
-
-    protected void initialize() {
-    }
-
-    protected void execute() {
-    }
-
-    protected boolean isFinished() {
-        return false;
-    }
-
-    protected void end() {
-    }
-
-    protected void interrupted() {
+        super(latch);
     }
 }

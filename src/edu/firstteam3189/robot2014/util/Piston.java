@@ -16,9 +16,7 @@ public class Piston {
     private Solenoid retracted;
 
     public Piston(int extendedChannel, int retractedChannel) {
-        extended = new Solenoid(extendedChannel);
-        retracted = new Solenoid(retractedChannel);
-        init();
+        this(extendedChannel, retractedChannel, true);
     }
 
     public Piston(int extendedChannel, int retractedChannel, boolean isRetracted) {
@@ -27,17 +25,12 @@ public class Piston {
         init(isRetracted);
     }
 
-    private void init() {
-        retract();
-    }
-
     private void init(boolean retracted) {
         retract(retracted);
     }
 
     public void extend() {
-        extended.set(true);
-        retracted.set(false);
+        extend(true);
     }
 
     public void extend(boolean isExtended) {
@@ -46,13 +39,11 @@ public class Piston {
     }
 
     public void retract() {
-        retracted.set(true);
-        extended.set(false);
+        extend(false);
     }
 
     public void retract(boolean isRetracted) {
-        retracted.set(isRetracted);
-        extended.set(!isRetracted);
+        extend(!isRetracted);
     }
 
     public boolean isExtended() {

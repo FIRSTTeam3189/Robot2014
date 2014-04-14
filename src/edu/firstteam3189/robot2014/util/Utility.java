@@ -12,9 +12,9 @@ public class Utility {
 
     public static double clamp(double value, double min, double max) {
         if (value < min) {
-            return min;
+            value = min;
         } else if (value > max) {
-            return max;
+            value = max;
         }
         return value;
     }
@@ -37,23 +37,14 @@ public class Utility {
     }
 
     public static boolean inRange(double number, double base, double range) {
-        if (number > base - range && number < base + range) {
-            return true;
-        }
-
-        return false;
+        return number > base - range && number < base + range;
     }
 
     public static boolean proportional(int x1, int x2, int y1, int y2, int xLength, int yLength) {
-
         int rxLength = x2 - x1;
         int ryLength = y2 - y2;
 
-        if (inRange(rxLength / ryLength, xLength / yLength, .2)) {
-            return true;
-        }
-
-        return false;
+        return inRange(rxLength / ryLength, xLength / yLength, .2);
     }
 
     public static boolean range(double value, double max) {

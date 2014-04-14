@@ -41,8 +41,7 @@ public class Collector extends Subsystem {
      * sets the power of the motors to 0 and -0
      */
     public void murder() {
-        left.set(0);
-        right.set(-0);
+        setPower(0.0);
     }
 
     public void updateStatus() {

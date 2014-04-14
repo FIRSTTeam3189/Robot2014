@@ -8,26 +8,13 @@ package edu.firstteam3189.robot2014.commands;
  *
  * @author Michael
  */
-public class DriveTrainDoNothing extends CommandBase {
+public class DriveTrainDoNothing extends DoNothingBase {
 
     public DriveTrainDoNothing() {
-        requires(drivetrain);
+        super(drivetrain);
     }
 
     protected void initialize() {
         drivetrain.murder();
-    }
-
-    protected void execute() {
-    }
-
-    protected boolean isFinished() {
-        return false;
-    }
-
-    protected void end() {
-    }
-
-    protected void interrupted() {
     }
 }
